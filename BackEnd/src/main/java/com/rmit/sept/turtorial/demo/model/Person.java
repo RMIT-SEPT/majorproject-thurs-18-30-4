@@ -19,9 +19,9 @@ public class Person {
     private String personIdentifier;
    @NotBlank(message = "desc is required")
     private String desc;
-    @JsonFormat(pattern ="yyyy-mm-dd")
+    @JsonFormat(pattern ="yyyy-MM-dd")
     private Date created_At;
-    @JsonFormat(pattern ="yyyy-mm-dd")
+    @JsonFormat(pattern ="yyyy-MM-dd")
     private Date updated_At;
 
     public Person() {
