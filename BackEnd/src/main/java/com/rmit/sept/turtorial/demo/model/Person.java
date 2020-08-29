@@ -13,15 +13,22 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-   @NotBlank(message = "Person name is required")
+    @NotBlank(message = "Person name is required")
     private String name;
-   @Size(min=4,max =5, message = "please enter 4 to 5 characters")
+
+
+    @Size(min=4,max =5, message = "please enter 4 to 5 characters")
     private String personIdentifier;
-   @NotBlank(message = "desc is required")
+
+    @NotBlank(message = "desc is required")
     private String desc;
-    @JsonFormat(pattern ="yyyy-mm-dd")
+    @JsonFormat(pattern ="yyyy-MM-dd")
+    private Date start_date;
+    @JsonFormat(pattern ="yyyy-MM-dd")
+    private Date end_date;
+    @JsonFormat(pattern ="yyyy-MM-dd")
     private Date created_At;
-    @JsonFormat(pattern ="yyyy-mm-dd")
+    @JsonFormat(pattern ="yyyy-MM-dd")
     private Date updated_At;
 
     public Person() {
@@ -43,12 +50,13 @@ public class Person {
         this.name = name;
     }
 
-    public String getBookIdentifier() {
+
+    public String getPersonIdentifier() {
         return personIdentifier;
     }
 
-    public void setBookIdentifier(String bookIdentifier) {
-        this.personIdentifier = bookIdentifier;
+    public void setPersonIdentifier(String personIdentifier) {
+        this.personIdentifier = personIdentifier;
     }
 
     public String getDesc() {
@@ -74,6 +82,24 @@ public class Person {
     public void setUpdated_At(Date updated_At) {
         this.updated_At = updated_At;
     }
+
+
+    public Date getStart_date() {
+        return start_date;
+    }
+
+    public void setStart_date(Date start_date) {
+        this.start_date = start_date;
+    }
+
+    public Date getEnd_date() {
+        return end_date;
+    }
+
+    public void setEnd_date(Date end_date) {
+        this.end_date = end_date;
+    }
+
 
     @PrePersist
     protected void onCreate() {

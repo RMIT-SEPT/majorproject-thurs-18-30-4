@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PersonRepository extends CrudRepository<Person, Long> {
 
+    Person findByPersonIdentifier(String personID);
+
     @Override
-    Iterable<Person> findAllById(Iterable<Long> iterable);
+    Iterable<Person> findAll();
 }
