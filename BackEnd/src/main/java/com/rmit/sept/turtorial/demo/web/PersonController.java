@@ -35,10 +35,7 @@ public class PersonController {
 
 
     @GetMapping("/{personId}")
-    public ResponseEntity<?> getPersonById(@PathVariable String personId
-
-
-    ){
+    public ResponseEntity<?> getPersonById(@PathVariable String personId){
 
         Person person = personService.findByPersonIdentifier(personId);
 
@@ -47,9 +44,10 @@ public class PersonController {
 
 
     @GetMapping("/all")
-    public Iterable<Person> getAllPersons(){return
+    public Iterable<Person> getAllPersons(){
 
-            personService.findAllPersons();}
+        return personService.findAllPersons();
+    }
 
 
     @DeleteMapping("/{personId}")

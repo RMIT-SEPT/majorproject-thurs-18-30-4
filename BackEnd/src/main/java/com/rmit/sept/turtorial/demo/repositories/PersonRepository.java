@@ -1,4 +1,4 @@
-package com.rmit.sept.turtorial.demo.Repositories;
+package com.rmit.sept.turtorial.demo.repositories;
 
 import com.rmit.sept.turtorial.demo.model.Person;
 import org.springframework.data.repository.CrudRepository;
@@ -11,4 +11,6 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 
     @Override
     Iterable<Person> findAll();
+
+    Person findByUsername(String username);
 }

@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.*;
 import java.util.Date;
-
+import java.util.Set;
 
 
 @Entity
@@ -16,9 +16,20 @@ public class Person {
     @NotBlank(message = "Person name is required")
     private String name;
 
-
     @Size(min=4,max =5, message = "please enter 4 to 5 characters")
     private String personIdentifier;
+
+    @NotBlank(message = "username is required")
+    private String username;
+
+    @NotBlank(message = "password is required")
+    private String password;
+
+    @Transient
+    private String passwordConfirm;
+
+    @ManyToMany
+    private Set<Role> roles;
 
     @NotBlank(message = "desc is required")
     private String desc;
@@ -59,12 +70,36 @@ public class Person {
         this.personIdentifier = personIdentifier;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getDesc() {
         return desc;
     }
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     public Date getCreated_At() {
@@ -111,5 +146,7 @@ public class Person {
         this.updated_At = new Date();
     }
 
-
+    public Object getPasswordConfirm() {
+        return passwordConfirm;
+    }
 }

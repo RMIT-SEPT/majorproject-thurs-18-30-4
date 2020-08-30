@@ -1,17 +1,32 @@
 package com.rmit.sept.turtorial.demo.services;
 
 
-import com.rmit.sept.turtorial.demo.Repositories.PersonRepository;
+import com.rmit.sept.turtorial.demo.model.Role;
+import com.rmit.sept.turtorial.demo.repositories.PersonRepository;
 import com.rmit.sept.turtorial.demo.exception.PersonException;
 import com.rmit.sept.turtorial.demo.model.Person;
+import com.rmit.sept.turtorial.demo.repositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 public class PersonService {
     @Autowired
     private PersonRepository personRepository;
-
+    @Autowired
+    private RoleRepository roleRepository;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public Person saveOrUpdatePerson(Person person) {
 
