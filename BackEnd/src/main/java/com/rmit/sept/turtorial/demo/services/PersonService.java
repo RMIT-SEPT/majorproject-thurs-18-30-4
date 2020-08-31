@@ -46,9 +46,7 @@ public class PersonService {
 
         if(person == null){
             throw new PersonException("Person ID '"+personId+"' does not exist");
-
         }
-
 
         return person;
     }
@@ -66,5 +64,15 @@ public class PersonService {
         }
 
         personRepository.delete(person);
+    }
+
+    public void save(Person person) {
+        person.setPassword(bCryptPasswordEncoder.encode(person.getPassword()));
+        person.setRoles(new HashSet<>(roleRepository.findAll()));
+        personRepository.save(person);
+    }
+
+    public Person findByUsername(String username) {
+        return personRepository.findByUsername(username);
     }
 }

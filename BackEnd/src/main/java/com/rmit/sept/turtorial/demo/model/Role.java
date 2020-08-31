@@ -1,7 +1,7 @@
 package com.rmit.sept.turtorial.demo.model;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.Collection;
 
 @Entity
 public class Role {
@@ -12,7 +12,7 @@ public class Role {
     private String name;
 
     @ManyToMany(mappedBy = "roles")
-    private Set<Person> people;
+    private Collection<Person> people;
 
     public long getId() {
         return id;
@@ -30,11 +30,11 @@ public class Role {
         this.name = name;
     }
 
-    public Set<Person> getPeople() {
+    public Collection<Person> getPeople() {
         return people;
     }
 
-    public void setPeople(Set<Person> people) {
+    public void setPeople(Collection<Person> people) {
         this.people = people;
     }
 }

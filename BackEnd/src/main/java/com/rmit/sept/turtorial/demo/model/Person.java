@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.*;
 import java.util.Date;
-import java.util.Set;
+import java.util.Collection;
 
 
 @Entity
@@ -29,7 +29,7 @@ public class Person {
     private String passwordConfirm;
 
     @ManyToMany
-    private Set<Role> roles;
+    private Collection<Role> roles;
 
     @NotBlank(message = "desc is required")
     private String desc;
@@ -94,11 +94,11 @@ public class Person {
         this.desc = desc;
     }
 
-    public Set<Role> getRoles() {
+    public Collection<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(Collection<Role> roles) {
         this.roles = roles;
     }
 
