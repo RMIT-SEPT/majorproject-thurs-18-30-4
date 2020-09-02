@@ -1,22 +1,37 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import SignUp from "../Signup/Signup.js";
+import Login from "../Login/Login.js";
 
 class Header extends Component {
-    render() {
-        return (
-            <div>
-                <nav className ="navbar navbar-dark bg-dark">
-                    <div className= "container">
-                        <a className= "navbar-brand" href= "Dashboard.html">
-                        <h1>agme.</h1>
-                        </a>
+  try = () => {
+    this.props.history.push("/Dashboard");
+  };
+  render() {
+    return (
+      <Router>
+        <div>
+          <nav className="navbar navbar-dark bg-dark">
+            <nav className="navbar-brand">
+              <Link to="/main">
+                <h1>agme.</h1>
+              </Link>
+            </nav>
 
-                       <a className= "navbar-brand" href= "Login.html">login</a>
-                    </div>
-                </nav>
-
-
-            </div>
-        )
-    }
+            <Link to="/login"> Log In</Link>
+            <Link to="/signup"> Sign Up</Link>
+          </nav>
+        </div>
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/signUp">
+            <SignUp />
+          </Route>
+        </Switch>
+      </Router>
+    );
+  }
 }
 export default Header;

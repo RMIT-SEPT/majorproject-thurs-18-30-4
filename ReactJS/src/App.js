@@ -1,17 +1,16 @@
-import React from 'react';
-import './App.css';
-import Header from './components/Layout/Header';
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Dashboard from './components/Dashboard';
-import SignUp from './components/SignUp/SignUp';
+import Main from "./components/Main/Main";
 
 function App() {
   return (
-    <div>
-      <Header/>
-      <Dashboard/>
-      <SignUp/>
-    </div>
+    <Router>
+      <div>
+        <Main />
+      </div>
+    </Router>
   );
 }
 
