@@ -1,0 +1,47 @@
+.Footer{
+   
+  
+position: absolute;
+width: 89px;
+height: 34px;
+left: 615px;
+top: 1985px;
+
+font-family: Ropa Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 11px;
+line-height: 12px;
+letter-spacing: 0.1em;
+
+color: #FFE7C2;
+
+}
+
+.Footer-facebook-logo{
+
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 713px;
+    top: 1994px;
+    
+}
+
+.Footer-instagram-logo{
+
+position: absolute;
+width: 28px;
+height: 28px;
+left: 743px;
+top: 1994px;
+
+
+}
+.Footer-twitter-logo{
+position: absolute;
+width: 26px;
+height: 26px;
+left: 776px;
+top: 1996px;
+}
