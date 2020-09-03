@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Component
-public class JwtTokenAuthorizationOncePerRequestFilter extends OncePerRequestFilter {
+public class    JwtTokenAuthorizationOncePerRequestFilter extends OncePerRequestFilter {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
