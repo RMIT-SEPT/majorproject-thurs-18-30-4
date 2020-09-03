@@ -34,10 +34,13 @@ public class Person {
     @NotBlank(message = "desc is required")
     private String desc;
     @JsonFormat(pattern ="yyyy-MM-dd")
+<<<<<<< HEAD
     private Date start_date;
     @JsonFormat(pattern ="yyyy-MM-dd")
     private Date end_date;
     @JsonFormat(pattern ="yyyy-MM-dd")
+=======
+>>>>>>> feature/sophia's-feature
     private Date created_At;
     @JsonFormat(pattern ="yyyy-MM-dd")
     private Date updated_At;
