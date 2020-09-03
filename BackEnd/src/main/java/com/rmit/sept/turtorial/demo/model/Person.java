@@ -1,15 +1,26 @@
 package com.rmit.sept.turtorial.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import com.fasterxml.jackson.annotation.*;
-import java.util.Date;
 import java.util.Collection;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
+@Table(	name = "users",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "username"),
+                @UniqueConstraint(columnNames = "email")
+        })
+  //need to configure mysql
 public class Person {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,30 +33,43 @@ public class Person {
     @NotBlank(message = "username is required")
     private String username;
 
+    @NotBlank
+    @Email
+    private String email;
+
     @NotBlank(message = "password is required")
     private String password;
 
     @Transient
+    @NotBlank
     private String passwordConfirm;
 
-    @ManyToMany
-    private Collection<Role> roles;
+    @ManyToMany(fetch = FetchType.LAZY)
+
+    @JoinTable(	name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    //need to configure mysql
+    private Set<Role> roles = new HashSet<>();
 
     @NotBlank(message = "desc is required")
     private String desc;
     @JsonFormat(pattern ="yyyy-MM-dd")
-<<<<<<< HEAD
     private Date start_date;
     @JsonFormat(pattern ="yyyy-MM-dd")
     private Date end_date;
     @JsonFormat(pattern ="yyyy-MM-dd")
-=======
->>>>>>> feature/sophia's-feature
     private Date created_At;
     @JsonFormat(pattern ="yyyy-MM-dd")
     private Date updated_At;
 
     public Person() {
+    }
+
+    public Person(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
     }
 
     public Long getId() {
@@ -101,7 +125,7 @@ public class Person {
         return roles;
     }
 
-    public void setRoles(Collection<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 
@@ -138,7 +162,6 @@ public class Person {
         this.end_date = end_date;
     }
 
-
     @PrePersist
     protected void onCreate() {
         this.created_At = new Date();
@@ -151,5 +174,17 @@ public class Person {
 
     public Object getPasswordConfirm() {
         return passwordConfirm;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
     }
 }
