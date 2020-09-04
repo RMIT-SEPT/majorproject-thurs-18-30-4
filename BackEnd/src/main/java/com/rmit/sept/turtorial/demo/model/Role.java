@@ -7,6 +7,13 @@ import java.util.Collection;
 //need to configure the database in our IDE
 @Table(name = "roles")
 public class Role {
+
+    public enum ERole {
+        ROLE_CUSTOMER,
+        ROLE_WORKER,
+        ROLE_ADMIN
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -16,8 +23,9 @@ public class Role {
     @Column(length = 25)
     private ERole name;
 
-    @ManyToMany(mappedBy = "roles")
-    private Collection<Person> people;
+    public Role() {}
+
+    public Role(ERole name) { this.name = name; }
 
     public long getId() {
         return id;
@@ -35,9 +43,8 @@ public class Role {
         this.name = name;
     }
 
-    public String getNameAsString() {
-        return name.toString();
-    }
+    @ManyToMany(mappedBy = "roles")
+    private Collection<Person> people;
 
     public Collection<Person> getPeople() {
         return people;
@@ -46,10 +53,4 @@ public class Role {
     public void setPeople(Collection<Person> people) {
         this.people = people;
     }
-}
-
-enum ERole {
-    ROLE_CUSTOMER,
-    ROLE_WORKER,
-    ROLE_ADMIN
 }
