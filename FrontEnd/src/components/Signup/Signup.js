@@ -37,17 +37,16 @@ class SignUp extends Component {
             <div className="signup-form">
               <h1>Sign Up</h1>
 
-              <label>First Name</label>
+              <label>Name</label>
               <input
                 type="text"
                 class="form-control"
-                id="firstName"
+                id="Name"
                 name="name"
                 value={this.state.name}
                 onChange={this.onChange}
               ></input>
-              <label>Last Name</label>
-              <input type="text" class="form-control" id="lastName"></input>
+
 
               <label>Email address</label>
               <input
