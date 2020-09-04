@@ -33,7 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         // for each role that the person has, grant authority based on the roles
         for (Role role : person.getRoles()) {
-            grantedAuthorities.add(new SimpleGrantedAuthority((role.getName())));
+            grantedAuthorities.add(new SimpleGrantedAuthority((role.getNameAsString())));
         }
 
         // return the person with username, password and authorities
