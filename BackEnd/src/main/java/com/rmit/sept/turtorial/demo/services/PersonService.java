@@ -1,23 +1,16 @@
 package com.rmit.sept.turtorial.demo.services;
 
 
-import com.rmit.sept.turtorial.demo.model.Role;
 import com.rmit.sept.turtorial.demo.repositories.PersonRepository;
 import com.rmit.sept.turtorial.demo.exception.PersonException;
 import com.rmit.sept.turtorial.demo.model.Person;
 import com.rmit.sept.turtorial.demo.repositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
-import java.util.Set;
+import java.util.Optional;
 
 @Service
 public class PersonService {
@@ -72,7 +65,7 @@ public class PersonService {
         personRepository.save(person);
     }
 
-    public Person findByUsername(String username) {
+    public Optional<Person> findByUsername(String username) {
         return personRepository.findByUsername(username);
     }
 }

@@ -6,7 +6,6 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -88,7 +87,6 @@ public class Person {
         this.name = name;
     }
 
-
     public String getPersonIdentifier() {
         return personIdentifier;
     }
@@ -121,9 +119,7 @@ public class Person {
         this.desc = desc;
     }
 
-    public Collection<Role> getRoles() {
-        return roles;
-    }
+    public Set<Role> getRoles() { return roles; }
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
@@ -144,7 +140,6 @@ public class Person {
     public void setUpdated_At(Date updated_At) {
         this.updated_At = updated_At;
     }
-
 
     public Date getStart_date() {
         return start_date;
@@ -172,9 +167,7 @@ public class Person {
         this.updated_At = new Date();
     }
 
-    public Object getPasswordConfirm() {
-        return passwordConfirm;
-    }
+    public Object getPasswordConfirm() { return passwordConfirm; }
 
     public String getEmail() {
         return email;
@@ -183,7 +176,7 @@ public class Person {
     public void setEmail(String email) {
         this.email = email;
     }
-
+    
     public void setPasswordConfirm(String passwordConfirm) {
         this.passwordConfirm = passwordConfirm;
     }
