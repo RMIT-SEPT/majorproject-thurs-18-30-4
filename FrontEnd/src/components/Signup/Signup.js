@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 
 class SignUp extends Component {
@@ -31,27 +30,26 @@ class SignUp extends Component {
     
   render() {
     return (
-      
       <div>
-      <form onSubmit{...this.onSubmit}>
+      <form onSubmit{this.onSubmit}>
         <div className="form-group">
           <div className="signup-form">
             <h1>Sign Up</h1>
 
-            <label>Name</label>
-            <input type="text" class="form-control" id="Name"
+            <label>First Name</label>
+            <input type="text" class="form-control" id="firstName"
             name= "name"
             value= {this.state.name}
             onChange={this.onChange}></input>
-           
+            <label>Last Name</label>
+            <input type="text" class="form-control" id="lastName"></input>
 
             <label>Email address</label>
             <input
               type="email"
               class="form-control"
               id="exampleInputEmail1"
-              value= {this.state.email}
-            onChange={this.onChange}
+              placeholder="Enter email"
 
             ></input>
 
@@ -59,9 +57,7 @@ class SignUp extends Component {
             <input
               type="password"
               class="form-control"
-              value= {this.state.password}
-              onChange={this.onChange}
-          
+              placeholder="Create password"
             ></input>
             <button variant="primary">Sign Up </button>
             {""}
