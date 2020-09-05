@@ -7,15 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.*;
-=======
+
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
->>>>>>> feature/sophia's-feature
+
 
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -30,20 +29,20 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-<<<<<<< HEAD
+
     @Autowired
     private MapValidationErrorService mapValidationErrorService;
 
 
-    @PostMapping("")
-    public ResponseEntity<?> createNewPerson(@Valid @RequestBody Person person, BindingResult result){
-
-        ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
-        if(errorMap!=null) return errorMap;
-
-        Person project1 = personService.saveOrUpdatePerson(person);
-        return new ResponseEntity<Person>(project1, HttpStatus.CREATED);
-    }
+//    @PostMapping("")
+//    public ResponseEntity<?> createNewPerson(@Valid @RequestBody Person person, BindingResult result){
+//
+//        ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
+//        if(errorMap!=null) return errorMap;
+//
+//        Person project1 = personService.saveOrUpdatePerson(person);
+//        return new ResponseEntity<Person>(project1, HttpStatus.CREATED);
+//    }
 
 
     @GetMapping("/{personId}")
@@ -68,8 +67,7 @@ public class PersonController {
 
         return new ResponseEntity<String>("Person with ID: '"+personId+"' was deleted", HttpStatus.OK);
     }
-}
-=======
+
 
     @PostMapping("")
     public ResponseEntity<?> createNewPerson(@Valid @RequestBody Person person, BindingResult result) {
@@ -84,5 +82,3 @@ public class PersonController {
         return new ResponseEntity<Person>(person, HttpStatus.CREATED);
     }
 }
-
->>>>>>> feature/sophia's-feature
