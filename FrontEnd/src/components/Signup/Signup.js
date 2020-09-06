@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+
 class SignUp extends Component {
   constructor() {
     super();
@@ -31,7 +32,71 @@ class SignUp extends Component {
 
   render() {
     return (
-      <div>
+      <form onSubmit {...this.onSubmit}>
+      <link rel="stylesheet"
+      type="text/css" href="[url_bootstrap_theme]"
+      />
+    <link
+      href="https://fonts.googleapis.com/css?family=Sanchez&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Rokkitt&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Ropa+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./css/main.css" rel="stylesheet" /> 
+    <title>Document</title>
+  
+    <div classNameName="v22_39">
+      <div className="v22_40"></div>
+      <div className="v22_41"></div>
+      <div className="v22_42"></div>
+      <span className="v22_43">Businesses</span>
+      <span className="v22_44">Make An Appointment</span>
+      <span className="v22_45">How To Use AGME</span>
+      <span className="v22_46">Why Use AGME?</span>
+      <span className="v22_47">Testimonials</span>
+      <span className="v22_48">Pricing</span>
+      <span className="v22_49">Contact Us</span>
+      <span className="v22_50">About Us</span>
+      <span className="v22_52">AGME</span>
+      <span className="v22_53">Sign Up</span>
+      <span className="v22_62">Sign Up</span>
+      <span className="v22_59">Log in</span>
+      <div className="v22_60"></div>
+      <div className="v22_61"></div>
+      <div className="v28_4"></div>
+      <div className="v28_3"></div>
+      <div className="v28_5"></div>
+      <span className="v28_10">Email Address</span>
+      <span className="v28_11">Create Password </span>
+      <span className="v28_9">Name</span>
+      <div className="v28_17">
+        <div className="v28_18"></div>
+        <span className="v28_19">Register</span>
+      </div>
+      <div className="v46_31">
+        <span className="v46_32">2020 © Copyright </span>
+        <div className="v46_33">
+          <div className="v46_34"></div>
+          <div className="v46_35"></div>
+        </div>
+        </div>
+    </div>
+    </form>
+
+    );
+  }
+}
+export default SignUp;
+
+
+/*  
+ <div>
         <form onSubmit {...this.onSubmit}>
           <div className="form-group">
             <div className="signup-form">
@@ -72,7 +137,5 @@ class SignUp extends Component {
           </div>
         </form>
       </div>
-    );
-  }
-}
-export default SignUp;
+      */
+
