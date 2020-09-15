@@ -11,16 +11,16 @@ class Header extends Component {
     return (
       <Router>
         <div>
-          <nav className="navbar navbar-light ">
-            <nav className="navbar-brand">
+          <nav className="navbar">
+          <Link to="/login"><div className= "main-heading"> Log In</div></Link>
               <Link to="/main">
-                <h1>agme.</h1>
+                <div className= "main-heading">agme.</div>
               </Link>
-            </nav>
+          
 
-            <Link to="/login"> Log In</Link>
+         
 
-            <Link to="/signup"> Sign Up</Link>
+            <Link to="/signup"> <div className= "main-heading">Sign Up</div></Link>
           </nav>
         </div>
         <Switch>
