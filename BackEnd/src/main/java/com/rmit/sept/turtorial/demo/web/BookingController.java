@@ -21,7 +21,7 @@ public class BookingController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Booking> getBooking(@PathVariable Long id) {
+    public ResponseEntity<Booking> getBooking(@PathVariable() Long id) {
         Booking booking = bookingService.findBookingById(id);
 
         return new ResponseEntity<>(booking, HttpStatus.OK);
@@ -37,7 +37,7 @@ public class BookingController {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Booking> updateBooking(
-            @PathVariable("id") long id, @RequestBody @Valid Booking booking) {
+            @PathVariable("id") long id, @RequestBody() @Valid Booking booking) {
 
         Booking updatedBooking = bookingService.updateBooking(id, booking);
 
@@ -45,7 +45,7 @@ public class BookingController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> updateBooking(@PathVariable("id") long id) {
+    public ResponseEntity<Void> cancelBooking(@PathVariable("id") long id) {
 
         boolean cancelled = bookingService.cancel(id);
         if (cancelled) {

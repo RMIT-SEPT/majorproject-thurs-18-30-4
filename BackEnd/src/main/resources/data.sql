@@ -92,6 +92,13 @@ LOCK TABLES `users` WRITE;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
+# DROP TABLE IF EXISTS `business`;
+# /*!40101 SET @saved_cs_client     = @@character_set_client */;
+# /*!50503 SET character_set_client = utf8mb4 */;
+# CREATE TABLE `business` (
+#
+# )
+
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
