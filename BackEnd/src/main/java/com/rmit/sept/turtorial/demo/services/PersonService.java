@@ -8,10 +8,12 @@ import com.rmit.sept.turtorial.demo.repositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.HashSet;
 import java.util.Optional;
 
+@CrossOrigin
 @Service
 public class PersonService {
     @Autowired
