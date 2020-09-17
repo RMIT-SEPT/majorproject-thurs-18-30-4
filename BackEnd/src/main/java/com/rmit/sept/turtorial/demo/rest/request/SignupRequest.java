@@ -18,8 +18,18 @@ public class SignupRequest {
     private Set<String> role;
 
     @NotBlank
-    @Size(min = 6, max = 40)
+   // @Size(min = 6, max = 40)
     private String password;
+
+    private String desc;
+
+    private String name;
+
+    private String passwordConfirm;
+
+    public String getDesc() { return desc; }
+    public String getName() { return name; }
+    public String getPasswordConfirm() { return passwordConfirm; }
 
     public String getUsername() {
         return username;

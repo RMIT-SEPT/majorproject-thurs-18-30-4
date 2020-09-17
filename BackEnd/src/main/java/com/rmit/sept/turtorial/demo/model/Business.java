@@ -6,10 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-//@Table( name = "business",
-//        uniqueConstraints = {
-//                @UniqueConstraint(columnNames = "name")
-//        })
+
 public class Business {
     @Id
     private Long id;
@@ -17,6 +14,7 @@ public class Business {
     private String name;
     @NotBlank(message = "Desc is required")
     private String desc;
+
     @OneToMany
     private Set<Person> workers = new HashSet<>();
 

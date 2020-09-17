@@ -6,11 +6,13 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+//@Table( name = "booking")
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
+    public Long businessId;
     public Long customerId;
     public Long workerId;
 
