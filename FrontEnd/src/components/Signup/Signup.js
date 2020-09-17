@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
+import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../Layout/Style/Style..css";
 
 class SignUp extends Component {
@@ -24,7 +24,7 @@ class SignUp extends Component {
     e.preventDefault();
     const newPerson = {
       name: this.state.name,
-      Email: this.state.Email,
+      email: this.state.email,
       role: this.state.role,
       username: this.state.username,
       created_At: this.state.created_At,
@@ -39,9 +39,10 @@ class SignUp extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
+            <div className="signup-form">
               <div className="form-group">
-                <div className="signup-form">
-                  <form onSubmit={this.onSubmit}>
+               
+                  <form onSubmit{...this.onSubmit}>
                     <h1>Sign Up</h1>
 
                    
@@ -58,12 +59,12 @@ class SignUp extends Component {
 
                     <label>Email address</label>
                     <input
-                      type="email"
-                      class="form-control"
-                      id="Email"
-                      Email="Email"
-                      value={this.state.Email}
-                      onChange={this.onChange}
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    email = "email"
+                    value = {this.state.email} 
+                    onChange={this.onChange}
                     ></input>
                     
                     
@@ -83,7 +84,7 @@ class SignUp extends Component {
                       class="form-control"
                       id="username"
                       username="username"
-                      value={this.state.username}
+                      value= {this.state.username}
                       onChange={this.onChange}
                     ></input>
 
