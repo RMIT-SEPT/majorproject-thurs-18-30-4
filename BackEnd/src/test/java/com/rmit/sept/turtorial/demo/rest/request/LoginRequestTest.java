@@ -24,7 +24,7 @@ class LoginRequestTest {
 
     @Test
     void setUsername() {
-        Person person1 = new Person((long) 123,"user1","user1@gmail.com", "abc", "User 1");
+        Person person1 = new Person((long) 123,"user1","user1@gmail.com","abc", "User 1");
         person1.setUsername("a");
         assertEquals("a",person1.getUsername());
     }
@@ -32,13 +32,13 @@ class LoginRequestTest {
     @Test
     void getPassword() {
         loginRequest.setPassword("abc");
-        Person person1 = new Person((long) 123,"user1","user1@gmail.com", "abc", "User 1");
+        Person person1 = new Person((long) 123,"user1","user1@gmail.com","abc", "User 1");
         assertEquals(loginRequest.getPassword(), person1.getPassword());
     }
 
     @Test
     void setPassword() {
-        Person person1 = new Person((long) 123,"user1","user1@gmail.com", "abc", "User 1");
+        Person person1 = new Person((long) 123,"user1","user1@gmail.com","abc", "User 1");
         person1.setPassword("cba");
         assertEquals("cba",person1.getPassword());
     }
