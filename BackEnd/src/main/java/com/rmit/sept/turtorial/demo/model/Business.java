@@ -6,16 +6,23 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-
+@Table(	name = "business",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "name")
+        })
 public class Business {
     @Id
     private Long id;
     @NotBlank(message = "Business name is required")
     private String name;
     @NotBlank(message = "Desc is required")
-    private String desc;
+    private String description;
 
     @OneToMany
+    @JoinTable(	name = "business_workers",
+            joinColumns = @JoinColumn(name = "business_id"),
+            inverseJoinColumns = @JoinColumn(name = "workers_id")
+    )
     private Set<Person> workers = new HashSet<>();
 
     public Business() {
@@ -39,11 +46,11 @@ public class Business {
     }
 
     public String getDesc() {
-        return desc;
+        return description;
     }
 
     public void setDesc(String desc) {
-        this.desc = desc;
+        this.description = desc;
     }
 
     public Set<Person> getWorkers() {

@@ -24,6 +24,8 @@ public class PersonRepositoryTest {
 
         Person found = personRepository.findByPersonIdentifier(p.getPersonIdentifier());
 
+        System.out.println(found.getName() + " " + p.getName());
+
         assertThat(found.getName()).isEqualTo(p.getName());
     }
 }

@@ -53,7 +53,7 @@ public class Person {
 
 
     @NotBlank(message = "desc is required")
-    private String desc;
+    private String description;
 
     @JsonFormat(pattern ="yyyy-MM-dd")
     private Date start_date;
@@ -118,11 +118,11 @@ public class Person {
     }
 
     public String getDesc() {
-        return desc;
+        return description;
     }
 
     public void setDesc(String desc) {
-        this.desc = desc;
+        this.description = desc;
     }
 
     public Set<Role> getRoles() { return roles; }

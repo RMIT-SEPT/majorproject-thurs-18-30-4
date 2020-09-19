@@ -26,6 +26,9 @@ public class UserDetailsServiceImplTest {
 
         UserDetails test = userDetailsService.loadUserByUsername(testPerson.getUsername());
 
+        System.out.println(test.getUsername() + " " + testPerson.getUsername());
+
         assertThat(test.getUsername()).isEqualTo(testPerson.getUsername());
+
     }
 }
