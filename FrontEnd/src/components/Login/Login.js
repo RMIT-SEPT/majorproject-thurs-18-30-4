@@ -17,6 +17,7 @@ class Login extends Component {
     this.setState({[e.target.id]: e.target.value});
   }
   onSubmit(e){
+    alert('Login submitted');
     e.preventDefault();
     // REST request
     axios({
@@ -71,7 +72,7 @@ class Login extends Component {
                 onChange={this.onChange}
                 value={this.state.password}
               ></input>
-              <button variant="primary" disabled={ !(this.state.password !== "" && this.state.username !== "") }>Log In </button>
+              <button variant="primary" button type = "submit" disabled={ !(this.state.password !== "" && this.state.username !== "") }>Log In </button>
               {""}
             </div>
           </div>
