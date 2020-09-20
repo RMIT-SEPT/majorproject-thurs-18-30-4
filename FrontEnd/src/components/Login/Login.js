@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
-import "../Layout/Style/style.css";
+import "../Layout/Style/Style..css";
 import axios from "axios";
 
 
