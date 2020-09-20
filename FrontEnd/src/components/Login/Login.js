@@ -8,7 +8,8 @@ class Login extends Component {
     super();
     this.state={
       "username": "",
-      "password": ""
+      "password": "",
+      "loggedin": false
     }
     this.onChange= this.onChange.bind(this);
     this.onSubmit= this.onSubmit.bind(this);
@@ -29,15 +30,28 @@ class Login extends Component {
     }).then(function(response) {
       console.log(response.status);
       // TODO
-      //   save auth token
-      //   alert user login successful
       //   navigate to homepage
+      //   handle logout in header
+      if (response.status === 200){
+        localStorage.setItem("AUTH_TOKEN", response.data.accessToken);
+      }
     }).catch(function(error){
-      // handle error
       if (error.response){
-        console.log(error.response.status);
-        console.log(error.response.data);
-        // TODO expand error handling: handle codes 400 (empty values), 401 (login failed), 500 (backend error)
+        if (error.response.status === 400){
+          // Empty/bad values
+          // TODO alert label saying "Bad Values"
+        } else if (error.response.status === 401){
+          // Login failed
+          // TODO alert label saying "Incorrect Credentials"
+        } else if (error.response.status === 500){
+          // Server error
+          // TODO alert box to say "please contact admin"
+        } else {
+          // Unhandled
+          // TODO alert saying "please contact admin and provide following data: " provide response data
+          console.log(error.response.status);
+          console.log(error.response.data);
+        }
       } else if (error.request){
         console.log("Request made, no response");
         console.log(error.request);
@@ -45,11 +59,16 @@ class Login extends Component {
         console.log("Error occurred: ", error.message);
       }
     });
+    if (localStorage.getItem("AUTH_TOKEN")){
+      this.setState({loggedin: true})
+      // TODO Bind to "log out" button in header
+      // localStorage.removeItem("AUTH_TOKEN");
+    }
   }
   render() {
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmit} hidden={this.state.loggedin}>
           <div className="form-group ">
             <div className="login-form">
               <h1>Log In</h1>
@@ -76,6 +95,9 @@ class Login extends Component {
             </div>
           </div>
         </form>
+        <h1 hidden={!this.state.loggedin} style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+          Successfully logged in
+        </h1>
       </div>
     );
   }
