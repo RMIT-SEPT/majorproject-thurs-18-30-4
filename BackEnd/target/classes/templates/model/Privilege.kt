@@ -1,7 +1,9 @@
-package com.rmit.sept.turtorial.demo.model;
+package templates.model
 
-import javax.persistence.*;
-import java.util.Collection;
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.Id
+import javax.persistence.ManyToMany
 
 @Entity
 public class Privilege {

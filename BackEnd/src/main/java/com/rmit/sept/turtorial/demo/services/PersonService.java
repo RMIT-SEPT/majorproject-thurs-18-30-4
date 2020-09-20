@@ -22,7 +22,7 @@ public class PersonService {
     private RoleRepository roleRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-
+/*
     public Person saveOrUpdatePerson(Person person) {
 
         try{
@@ -45,7 +45,7 @@ public class PersonService {
 
         return person;
     }
-
+*/
     public Iterable<Person> findAllPersons(){
         return personRepository.findAll();
     }
