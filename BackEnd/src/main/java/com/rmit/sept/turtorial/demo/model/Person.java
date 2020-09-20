@@ -51,9 +51,15 @@ public class Person {
     //need to configure mysql
     private Set<Role> roles = new HashSet<>();
 
+    @OneToMany
+    @JoinTable( name = "customer_bookings",
+            joinColumns = @JoinColumn(name = "customer_id"),
+            inverseJoinColumns = @JoinColumn(name = "booking_id")
+    )
+    private Set<Booking> bookings = new HashSet<>();
 
-    @NotBlank(message = "desc is required")
-    private String description;
+    //@NotBlank(message = "desc is required")
+    //private String description;
 
     @JsonFormat(pattern ="yyyy-MM-dd")
     private Date start_date;
@@ -117,13 +123,13 @@ public class Person {
         this.password = password;
     }
 
-    public String getDesc() {
-        return description;
-    }
-
-    public void setDesc(String desc) {
-        this.description = desc;
-    }
+//    public String getDesc() {
+//        return description;
+//    }
+//
+//    public void setDesc(String desc) {
+//        this.description = desc;
+//    }
 
     public Set<Role> getRoles() { return roles; }
 

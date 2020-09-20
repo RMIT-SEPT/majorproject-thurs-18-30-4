@@ -49,6 +49,10 @@ public class BookingService {
         return booking.get();
     }
 
+    // instantiates a Booking object with the booking parameter id
+    // then checks if it is still active
+    // if not active, then throw an exception
+    // set the booking with a new id, set it to active and save it to the repository
     @Transactional
     public Booking updateBooking(long id, Booking booking) {
 

@@ -13,6 +13,8 @@ public class BusinessService {
     @Autowired
     BusinessRepository businessRepository;
 
+    // saves a business into the business repository
+    // throws an exception if the business has an id
     public Business createBusiness(Business business) {
         if (business.getId() != null) {
             throw new BusinessException(String.format("New business must not have an id"));
@@ -21,6 +23,7 @@ public class BusinessService {
         return businessRepository.save(business);
     }
 
+    // returns a business object from business repository based on given id
     public Business findBusinessById(Long id) {
         Optional<Business> business = businessRepository.findById(id);
 

@@ -20,6 +20,7 @@ public class BusinessController {
         this.businessService = businessService;
     }
 
+    // returns a response entity with a business object by calling the findBusinessById() method from businessService using given id
     @GetMapping("/{id}")
     public ResponseEntity<Business> getBusiness(@PathVariable() Long id) {
         Business business = businessService.findBusinessById(id);
@@ -27,17 +28,11 @@ public class BusinessController {
         return new ResponseEntity<>(business, HttpStatus.OK);
     }
 
+    // calls the createBusiness() method from businessService and returns a response entity with the created business
     @PostMapping()
     public ResponseEntity<Business> addBusiness(@RequestBody() @Valid Business business) {
         Business addBusiness = businessService.createBusiness(business);
 
         return new ResponseEntity<>(addBusiness, HttpStatus.ACCEPTED);
-    }
-
-    @GetMapping("/{id")
-    public ResponseEntity<Business> updateBusiness(@PathVariable() Long id) {
-        Business updateBusiness = businessService.findBusinessById(id);
-
-        return new ResponseEntity<>(updateBusiness, HttpStatus.OK);
     }
 }
