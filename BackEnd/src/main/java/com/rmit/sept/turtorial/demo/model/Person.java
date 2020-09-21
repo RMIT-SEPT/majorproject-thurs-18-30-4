@@ -41,7 +41,7 @@ public class Person {
 
     //declare email
     @NotBlank
-    @Email
+    @Email (message= "Email must be valid")
     private String email;
     //declare password
     @NotBlank(message = "password is required")

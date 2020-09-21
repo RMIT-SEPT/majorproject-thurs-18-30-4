@@ -41,3 +41,4 @@ public class UserDetailsServiceImplTest {
         assertEquals(person1.getUsername(), userDetailsService.loadUserByUsername("user1").getUsername());
     }
 }
+
