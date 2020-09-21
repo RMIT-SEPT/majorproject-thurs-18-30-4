@@ -10,45 +10,54 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-@Entity
-@Table(	name = "users",
+@Entity //Specifies that the class is an entity.
+
+//set table name and unique constraints
+@Table(name = "users",
         uniqueConstraints = {
+                @UniqueConstraint(columnNames = "id"),
                 @UniqueConstraint(columnNames = "username"),
                 @UniqueConstraint(columnNames = "email")
         })
   //need to configure mysql
 public class Person {
 
-    @Id
+    @Id // generate primary key for id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //declare name variable
     @NotBlank(message = "Person name is required")
     private String name;
 
-   // @Size(min=4,max =5, message = "please enter 4 to 5 characters")
+
+    // @Size(min=4,max =5, message = "please enter 4 to 5 characters")
     private String personIdentifier;
 
+
+    //declare username
     @NotBlank(message = "username is required")
     private String username;
 
+    //declare email
     @NotBlank
-    @Email
+    @Email (message= "Email must be valid")
     private String email;
-
+    //declare password
     @NotBlank(message = "password is required")
     private String password;
 
-    @Transient
-    //@NotBlank
+    //declare confirm password
+    @Transient //does not create a column
     private String passwordConfirm;
 
+    //create a table with both user and role id
     @ManyToMany(fetch = FetchType.LAZY)
-
     @JoinTable(	name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    //need to configure mysql
+
+    //create a set of roles
     private Set<Role> roles = new HashSet<>();
 
     @OneToMany
@@ -72,7 +81,7 @@ public class Person {
 
     public Person() {
     }
-
+    //constructor with fields for person
     public Person(Long id, String username, String email, String password, String name) {
         this.id = id;
         this.username = username;
@@ -80,9 +89,12 @@ public class Person {
         this.password = password;
         this.name = name;
         //this.desc = desc;
-       // this.passwordConfirm = passwordConfirm;
+        //this.passwordConfirm = passwordConfirm;
     }
 
+    /**
+     * Lists of getters and setters
+     */
     public Long getId() {
         return id;
     }

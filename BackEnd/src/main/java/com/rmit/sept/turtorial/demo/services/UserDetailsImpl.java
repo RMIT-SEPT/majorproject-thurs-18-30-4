@@ -11,21 +11,20 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-
+// class for getting more information regarding the user details
 public class UserDetailsImpl implements UserDetails {
+    // used during deserialization to verify that the sender and receiver of a serialized object
     private static final long serialVersionUID = 1L;
 
+    //declare variables for id, username, email, password and authorities
     private Long id;
-
     private String username;
-
     private String email;
-
     @JsonIgnore
     private String password;
-
     private Collection<? extends GrantedAuthority> authorities;
 
+    //constructor for user details implementation with id, username,password and authorities field
     public UserDetailsImpl(Long id, String username, String email, String password,
                            Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
@@ -35,6 +34,7 @@ public class UserDetailsImpl implements UserDetails {
         this.authorities = authorities;
     }
 
+    //build user and return the user information
     public static UserDetailsImpl build(Person user) {
         List<GrantedAuthority> authorities = user.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName().name()))
@@ -47,50 +47,59 @@ public class UserDetailsImpl implements UserDetails {
                 user.getPassword(),
                 authorities);
     }
-
+    //getter for authorities
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
     }
 
+    //getter for id
     public Long getId() {
         return id;
     }
 
+    //getter for email
     public String getEmail() {
         return email;
     }
 
+    //getter for password
     @Override
     public String getPassword() {
         return password;
     }
 
+    //getter for username
     @Override
     public String getUsername() {
         return username;
     }
 
+    //status for account regarding if it is expired or not
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
 
+    //status for account regarding if it is locked or not
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
 
+    //status for the user credentials regarding if it is expired or not
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
 
+    //boolean to check if it is enabled
     @Override
     public boolean isEnabled() {
         return true;
     }
 
+    //check if the object matches (id)
     @Override
     public boolean equals(Object o) {
         if (this == o)
