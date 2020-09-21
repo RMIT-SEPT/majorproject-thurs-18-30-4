@@ -4,10 +4,13 @@ import com.rmit.sept.turtorial.demo.model.Person;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PersonServiceTests {
+    @MockBean
     private static PersonService ps;
 
     Person person1 = new Person((long) 123,"user1","user1@gmail.com", "abc", "User 1");

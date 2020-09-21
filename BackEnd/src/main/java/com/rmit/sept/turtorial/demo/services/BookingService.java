@@ -23,6 +23,7 @@ public class BookingService {
         if (booking.getId() != null) {
             throw new BookingException(String.format("New booking must not have an id"));
         }
+
         return bookingRepository.save(booking);
     }
 
