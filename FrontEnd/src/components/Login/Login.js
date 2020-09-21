@@ -18,7 +18,6 @@ class Login extends Component {
     this.setState({ [e.target.id]: e.target.value });
   }
   onSubmit(e) {
-    alert("Login submitted");
     e.preventDefault();
     console.log(this.state);
 
@@ -37,6 +36,7 @@ class Login extends Component {
       //   handle logout in header
       if (response.status === 200){
         localStorage.setItem("AUTH_TOKEN", response.data.accessToken);
+        alert("Login successful");
       }
     }).catch(function(error){
       if (error.response){
@@ -46,14 +46,18 @@ class Login extends Component {
         } else if (error.response.status === 401){
           // Login failed
           // TODO alert label saying "Incorrect Credentials"
+          alert("Incorrect credentials");
         } else if (error.response.status === 500){
           // Server error
           // TODO alert box to say "please contact admin"
+          alert("Please contact admin");
         } else {
           // Unhandled
           // TODO alert saying "please contact admin and provide following data: " provide response data
           console.log(error.response.status);
           console.log(error.response.data);
+          alert("Please contact admin and provide following data: ", error.response.status, error.response.data);
+          alert(error.response.status, error.response.data);
         }
       } else if (error.request){
         console.log("Request made, no response");
