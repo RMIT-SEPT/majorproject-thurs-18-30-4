@@ -36,14 +36,16 @@ class SignUp extends Component {
       method: "post",
       url: "http://localhost:8080/api/auth/signup",
       data: {
+        name: this.state.name,
         username: this.state.username,
         email: this.state.email,
         password: this.state.password,
-        role: [],
+        role: this.state.role,
       },
     })
       .then(function (response) {
         console.log(response.status);
+        
         // TODO alert user signup successful, navigate to login page
       })
       .catch(function (error) {
@@ -61,6 +63,9 @@ class SignUp extends Component {
       });
     const newPerson = {
       name: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      role: this.state.role,
       personIdentifier: this.state.id,
       desc: this.state.desc,
       created_At: this.state.created_At,
@@ -107,6 +112,7 @@ class SignUp extends Component {
                       onChange={this.onChange}
                     >
                       <option>Customer</option>
+                      <option>Worker</option>
                       <option>Business Owner</option>
                     </select>
 

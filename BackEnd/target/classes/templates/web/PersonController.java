@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.*;
-=======
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,7 +28,6 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-<<<<<<< HEAD
     @Autowired
     private MapValidationErrorService mapValidationErrorService;
 
@@ -69,20 +66,7 @@ public class PersonController {
         return new ResponseEntity<String>("Person with ID: '"+personId+"' was deleted", HttpStatus.OK);
     }
 }
-=======
 
-    @PostMapping("")
-    public ResponseEntity<?> createNewPerson(@Valid @RequestBody Person person, BindingResult result) {
-
-        if (result.hasErrors()){
-            Map<String, String> errorMap = new HashMap<>();
-            for (FieldError error : result.getFieldErrors()) {
-                return new ResponseEntity<List<FieldError>>(result.getFieldErrors(), HttpStatus.BAD_REQUEST);
-            }
-        }
-        Person person1 = personService.saveOrUpdatePerson(person);
-        return new ResponseEntity<Person>(person, HttpStatus.CREATED);
-    }
 }
 
->>>>>>> feature/sophia's-feature
+
