@@ -19,53 +19,60 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+//this class will be responsible for the security of our application
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    // variable for UserDetailsServiceImpl
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
+    // variable for AuthEntryPointJwt
     @Autowired
     private AuthEntryPointJwt unauthorizedHandler;
 
-    @Bean
+    @Bean //produces a bean to be managed by the Spring Container
+    // jwt token filer for authentication
     public AuthTokenFilter authenticationJwtTokenFilter() {
         return new AuthTokenFilter();
     }
 
     @Bean
     @Override
+    //  to manage the  authentication
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-/*
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .antMatchers("/resources/**").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll();
-    }
-*/
+    /*
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http
+                    .authorizeRequests()
+                    .antMatchers("/resources/**").permitAll()
+                    .anyRequest().authenticated()
+                    .and()
+                    .formLogin()
+                    .loginPage("/login")
+                    .permitAll()
+                    .and()
+                    .logout()
+                    .permitAll();
+        }
+    */
     @Bean
+    //encode the password into hash for enhance security
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Autowired
+    //method to encode the password
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
-
     }
 
 
     @Override
+    // to set the configuration related to the site's security
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
