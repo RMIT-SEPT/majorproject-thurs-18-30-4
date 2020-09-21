@@ -13,13 +13,14 @@ import java.util.Date;
 @Component
 public class JwtUtils {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
-
-    @Value("${bezkoder.app.jwtSecret}")
+    //jwt secret key
+    @Value("${sept.app.jwtSecret}")
     private String jwtSecret;
-
-    @Value("${bezkoder.app.jwtExpirationMs}")
+    //expiration time
+    @Value("${sept.app.jwtExpirationMs}")
     private int jwtExpirationMs;
 
+    //method to generate JWT
     public String generateJwtToken(Authentication authentication) {
 
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
@@ -31,15 +32,16 @@ public class JwtUtils {
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)
                 .compact();
     }
-
+    //get the username from the JWT
     public String getUserNameFromJwtToken(String token) {
         return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
     }
-
+    //validate the JWT
     public boolean validateJwtToken(String authToken) {
         try {
             Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);
             return true;
+            // errors message to display at logger
         } catch (SignatureException e) {
             logger.error("Invalid JWT signature: {}", e.getMessage());
         } catch (MalformedJwtException e) {
