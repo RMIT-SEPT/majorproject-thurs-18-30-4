@@ -13,14 +13,16 @@ class Login extends Component {
     }
     this.onChange= this.onChange.bind(this);
     this.onSubmit= this.onSubmit.bind(this);
+    
   }
+  
   onChange(e) {
     this.setState({ [e.target.id]: e.target.value });
   }
   onSubmit(e) {
     e.preventDefault();
     console.log(this.state);
-
+ 
     // REST request
     axios({
       method: "post",
@@ -36,8 +38,8 @@ class Login extends Component {
       //   handle logout in header
       if (response.status === 200){
         localStorage.setItem("AUTH_TOKEN", response.data.accessToken);
-        alert("Login successful");
-      }
+
+        }
     }).catch(function(error){
       if (error.response){
         if (error.response.status === 400){
@@ -58,7 +60,6 @@ class Login extends Component {
           console.log(error.response.status);
           console.log(error.response.data);
           alert("Please contact admin and provide following data: ", error.response.status, ": ", error.response.data);
-          alert(error.response.status, error.response.data);
         }
       } else if (error.request){
         console.log("Request made, no response");

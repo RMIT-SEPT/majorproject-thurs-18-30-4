@@ -46,7 +46,12 @@ class SignUp extends Component {
         console.log(response.status);
         
         // TODO alert user signup successful, navigate to login page
-        alert("Signup successful");
+        if(response.status ===200){
+          alert("Signup successful");
+          
+          }
+    
+
 
       }).catch(function(error){
         if (error.response){
