@@ -55,15 +55,15 @@ class SignUp extends Component {
           if (error.response.status === 400){
             // acc exists
             // TODO alert acc exists
-            alert("Username has been taken");
+            alert("Username is not valid or has already been taken");
           } else if (error.response.status === 500){
             // server err
             // TODO alert contact admin
-            alert("Please contact admin");
+            alert("Invalid");
           } else{
             // unhandled
             // TODO alert contact admin w/ response.data
-            alert("Please contact admin with the following data: ", error.response.status, error.response.data);
+            alert("Please contact admin with the following data: ", error.response.status, ": ", error.response.data);
           }
         } else if (error.request){
           console.log("Request made, no response");

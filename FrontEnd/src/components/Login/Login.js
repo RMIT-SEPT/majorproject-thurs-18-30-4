@@ -43,6 +43,7 @@ class Login extends Component {
         if (error.response.status === 400){
           // Empty/bad values
           // TODO alert label saying "Bad Values"
+          alert("Bad Values");
         } else if (error.response.status === 401){
           // Login failed
           // TODO alert label saying "Incorrect Credentials"
@@ -56,7 +57,7 @@ class Login extends Component {
           // TODO alert saying "please contact admin and provide following data: " provide response data
           console.log(error.response.status);
           console.log(error.response.data);
-          alert("Please contact admin and provide following data: ", error.response.status, error.response.data);
+          alert("Please contact admin and provide following data: ", error.response.status, ": ", error.response.data);
           alert(error.response.status, error.response.data);
         }
       } else if (error.request){
