@@ -60,12 +60,6 @@ public class Person {
     //create a set of roles
     private Set<Role> roles = new HashSet<>();
 
-<<<<<<< HEAD
-    // @NotBlank(message = "desc is required")
-    //private String desc;
-
-    //empty constructor for person
-=======
     @OneToMany
     @JoinTable( name = "customer_bookings",
             joinColumns = @JoinColumn(name = "customer_id"),
@@ -85,7 +79,6 @@ public class Person {
     @JsonFormat(pattern ="yyyy-MM-dd")
     private Date updated_At;
 
->>>>>>> develop
     public Person() {
     }
     //constructor with fields for person

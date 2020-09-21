@@ -27,8 +27,7 @@ class SignUp extends Component {
   onChange(e) {
     this.setState({ [e.target.id]: e.target.value });
   }
-  onSubmit(e) {
-    alert('Signup submitted');
+  onSubmit(e){
     e.preventDefault();
 
     // backend request
@@ -47,6 +46,12 @@ class SignUp extends Component {
         console.log(response.status);
         
         // TODO alert user signup successful, navigate to login page
+        if(response.status ===200){
+          alert("Signup successful");
+          
+          }
+    
+
 
       }).catch(function(error){
         if (error.response){
@@ -55,12 +60,15 @@ class SignUp extends Component {
           if (error.response.status === 400){
             // acc exists
             // TODO alert acc exists
+            alert("Username is not valid or has already been taken");
           } else if (error.response.status === 500){
             // server err
             // TODO alert contact admin
+            alert("Invalid");
           } else{
             // unhandled
             // TODO alert contact admin w/ response.data
+            alert("Please contact admin with the following data: ", error.response.status, ": ", error.response.data);
           }
         } else if (error.request){
           console.log("Request made, no response");
@@ -132,15 +140,6 @@ class SignUp extends Component {
                       onChange={this.onChange}
                       value={this.state.email}
                     ></input>
-
-                    {/*<label>Email address</label>*/}
-                    {/*<input*/}
-                    {/*  type="email"*/}
-                    {/*  class="form-control"*/}
-                    {/*  id="exampleInputEmail1"*/}
-                    {/*  placeholder="Enter email"*/}
-
-                    {/*></input>*/}
 
                     <label>Create Password</label>
                     <input

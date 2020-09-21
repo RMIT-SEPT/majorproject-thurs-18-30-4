@@ -13,15 +13,16 @@ class Login extends Component {
     }
     this.onChange= this.onChange.bind(this);
     this.onSubmit= this.onSubmit.bind(this);
+    
   }
+  
   onChange(e) {
     this.setState({ [e.target.id]: e.target.value });
   }
   onSubmit(e) {
-    alert("Login submitted");
     e.preventDefault();
     console.log(this.state);
-
+ 
     // REST request
     axios({
       method: "post",
@@ -37,23 +38,28 @@ class Login extends Component {
       //   handle logout in header
       if (response.status === 200){
         localStorage.setItem("AUTH_TOKEN", response.data.accessToken);
-      }
+
+        }
     }).catch(function(error){
       if (error.response){
         if (error.response.status === 400){
           // Empty/bad values
           // TODO alert label saying "Bad Values"
+          alert("Bad Values");
         } else if (error.response.status === 401){
           // Login failed
           // TODO alert label saying "Incorrect Credentials"
+          alert("Incorrect credentials");
         } else if (error.response.status === 500){
           // Server error
           // TODO alert box to say "please contact admin"
+          alert("Please contact admin");
         } else {
           // Unhandled
           // TODO alert saying "please contact admin and provide following data: " provide response data
           console.log(error.response.status);
           console.log(error.response.data);
+          alert("Please contact admin and provide following data: ", error.response.status, ": ", error.response.data);
         }
       } else if (error.request){
         console.log("Request made, no response");
