@@ -1,8 +1,11 @@
 package com.rmit.sept.turtorial.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -57,10 +60,25 @@ public class Person {
     //create a set of roles
     private Set<Role> roles = new HashSet<>();
 
-    // @NotBlank(message = "desc is required")
-    //private String desc;
+    @OneToMany
+    @JoinTable( name = "customer_bookings",
+            joinColumns = @JoinColumn(name = "customer_id"),
+            inverseJoinColumns = @JoinColumn(name = "booking_id")
+    )
+    private Set<Booking> bookings = new HashSet<>();
 
-    //empty constructor for person
+    //@NotBlank(message = "desc is required")
+    //private String description;
+
+    @JsonFormat(pattern ="yyyy-MM-dd")
+    private Date start_date;
+    @JsonFormat(pattern ="yyyy-MM-dd")
+    private Date end_date;
+    @JsonFormat(pattern ="yyyy-MM-dd")
+    private Date created_At;
+    @JsonFormat(pattern ="yyyy-MM-dd")
+    private Date updated_At;
+
     public Person() {
     }
     //constructor with fields for person
@@ -116,15 +134,15 @@ public class Person {
     public void setPassword(String password) {
         this.password = password;
     }
-/*
-    public String getDesc() {
-        return desc;
-    }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-*/
+//    public String getDesc() {
+//        return description;
+//    }
+//
+//    public void setDesc(String desc) {
+//        this.description = desc;
+//    }
+
     public Set<Role> getRoles() { return roles; }
 
     public void setRoles(Set<Role> roles) {
