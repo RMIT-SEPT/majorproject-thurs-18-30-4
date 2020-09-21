@@ -1,20 +1,18 @@
 package com.rmit.sept.turtorial.demo.model;
 
 import javax.persistence.*;
-import java.util.Collection;
 
-@Entity
-//need to configure the database in our IDE
-@Table(name = "roles")
+@Entity //Specifies that the class is an entity.
+@Table(name = "roles") //specify the table name for the database.
 public class Role {
-
+    //enum for customer, worker and admin roles
     public enum ERole {
         ROLE_CUSTOMER,
         ROLE_WORKER,
         ROLE_ADMIN
     }
 
-    @Id
+    @Id //generate primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
@@ -23,34 +21,26 @@ public class Role {
     @Column(length = 25)
     private ERole name;
 
+    //empty constructor for role
     public Role() {}
 
+    //constructor with name field
     public Role(ERole name) { this.name = name; }
 
+    //getter for id
     public long getId() {
         return id;
     }
-
+    //setter for id
     public void setId(long id) {
         this.id = id;
     }
-
+    //getter for name of the role
     public ERole getName() {
         return name;
     }
-
+    //setter for name of the role
     public void setName(ERole name) {
         this.name = name;
-    }
-
-    @ManyToMany(mappedBy = "roles")
-    private Collection<Person> people;
-
-    public Collection<Person> getPeople() {
-        return people;
-    }
-
-    public void setPeople(Collection<Person> people) {
-        this.people = people;
     }
 }
