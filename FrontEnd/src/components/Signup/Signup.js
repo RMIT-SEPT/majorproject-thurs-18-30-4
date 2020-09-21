@@ -47,14 +47,22 @@ class SignUp extends Component {
         console.log(response.status);
         
         // TODO alert user signup successful, navigate to login page
-      })
-      .catch(function (error) {
-        // handle error
-        if (error.response) {
+
+      }).catch(function(error){
+        if (error.response){
           console.log(error.response.status);
           console.log(error.response.data);
-          // TODO expand error handling: handle codes 400 (acc already exists), 500 (server err)
-        } else if (error.request) {
+          if (error.response.status === 400){
+            // acc exists
+            // TODO alert acc exists
+          } else if (error.response.status === 500){
+            // server err
+            // TODO alert contact admin
+          } else{
+            // unhandled
+            // TODO alert contact admin w/ response.data
+          }
+        } else if (error.request){
           console.log("Request made, no response");
           console.log(error.request);
         } else {

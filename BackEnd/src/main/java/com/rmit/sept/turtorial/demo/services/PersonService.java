@@ -22,7 +22,8 @@ public class PersonService {
     private RoleRepository roleRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-/*
+
+    // Tries to return a person object via save() method from personRepository, throwing an exception if the person ID exists
     public Person saveOrUpdatePerson(Person person) {
 
         try{
@@ -34,7 +35,8 @@ public class PersonService {
 
     }
 
-
+    // calls the findByPersonIdentifer() method from personRepository using personId, and retuns the instantiated person
+    // throws an exception if the instantiated person is null
     public Person findByPersonIdentifier(String personId){
 
         Person person = personRepository.findByPersonIdentifier(personId.toUpperCase());
@@ -45,12 +47,14 @@ public class PersonService {
 
         return person;
     }
-*/
+
     public Iterable<Person> findAllPersons(){
         return personRepository.findAll();
     }
 
 
+    // instantiates a person object via findByPersonIdentifier() and deletes the object from repository
+    // throws an exception if the person is null
     public void deletePersonByIdentifier(String personId){
         Person person = personRepository.findByPersonIdentifier(personId.toUpperCase());
 
@@ -61,6 +65,7 @@ public class PersonService {
         personRepository.delete(person);
     }
 
+    // sets the given person with an encoded password and rolls, returning the person object from the save() method
     public void save(Person person) {
         person.setPassword(bCryptPasswordEncoder.encode(person.getPassword()));
         person.setRoles(new HashSet<>(roleRepository.findAll()));
