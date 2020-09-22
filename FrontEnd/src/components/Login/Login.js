@@ -76,7 +76,7 @@ class Login extends Component {
   }
   render() {
     return (
-      <div className="signup-form">
+      <div className="login-form">
       <div className="form-group ">
         <div className="container">
           <div className="row">
@@ -93,8 +93,6 @@ class Login extends Component {
                   onChange={this.onChange}
                   value={this.state.username}
                 ></input>
-      
-
                   <label>Password</label>
                   <input
                     type="password"
@@ -122,7 +120,7 @@ class Login extends Component {
           </div>
         </div>
         <h1 hidden={!this.state.loggedin} style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-          Successfully logged in
+          User successfully logged in.
         </h1>
       </div>
     );
