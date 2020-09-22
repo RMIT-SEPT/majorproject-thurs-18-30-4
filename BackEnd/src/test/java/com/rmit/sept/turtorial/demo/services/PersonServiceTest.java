@@ -1,6 +1,7 @@
 package com.rmit.sept.turtorial.demo.services;
 
 import com.rmit.sept.turtorial.demo.exception.PersonException;
+import com.rmit.sept.turtorial.demo.model.Business;
 import com.rmit.sept.turtorial.demo.model.Person;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class PersonServiceTest {
     @Test
     public void saveOrUpdatePerson_ThrowsException_IfPersonAlreadyHasIdentifier() {
         Person person = new Person((long) 123,"user1","user1@gmail.com", "abc", "User 1");
-
+        person.setPersonIdentifier("test");
         assertThrows(PersonException.class,
                 ()->personService.saveOrUpdatePerson(person),
                 "saveOrUpdatePerson method threw a PersonException");

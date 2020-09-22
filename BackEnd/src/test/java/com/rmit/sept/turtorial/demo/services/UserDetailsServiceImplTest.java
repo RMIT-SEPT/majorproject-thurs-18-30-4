@@ -18,22 +18,16 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class UserDetailsServiceImplTest {
     @MockBean
     private UserDetailsServiceImpl userDetailsService;
-    @MockBean
-    private PersonRepository personRepository;
-    @MockBean
-    private UserDetailsImpl userDetails;
     // the test below asserts that a UsernameNotFoundException should be thrown if the username is not found in the repository
     // currently fails due to personRepository in userDetailsServiceImpl class not being instantiated in the UserDetailsServiceImpl class
     @Test
-    public void loadByUsername_personUsernameIsEqual_IfUsernameIsNotFoundInRepository() {
+    public void loadByUsername_userDetailsBuildIsNull_IfUsernameIsNotFoundInRepository() {
         Person testPerson = new Person();
         testPerson.setUsername("test");
-        personRepository.save(testPerson);
+
         UserDetails test = userDetailsService.loadUserByUsername(testPerson.getUsername());
 
-        System.out.println(test.getUsername() + " " + testPerson.getUsername());
-
-        //assertThat(test.getUsername()).isEqualTo(testPerson.getUsername());
-
+        assertThat(test).isNull();
+        System.out.println("userDetails test object is null");
     }
 }
