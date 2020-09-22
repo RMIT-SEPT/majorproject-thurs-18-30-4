@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
 import "../Layout/Style/Style..css";
 import axios from "axios";
+import { Redirect, Route } from "react-router-dom";
 
 class Login extends Component {
   constructor() {
@@ -15,10 +16,11 @@ class Login extends Component {
     this.onSubmit= this.onSubmit.bind(this);
     
   }
-  
+  //change values as per form input
   onChange(e) {
     this.setState({ [e.target.id]: e.target.value });
   }
+  //submit form
   onSubmit(e) {
     e.preventDefault();
     console.log(this.state);
@@ -85,6 +87,7 @@ class Login extends Component {
                 <h1>
                   <div className="main-heading">Log In</div>
                 </h1>
+                {/*Displays input textbox for username */}
                 <label>Username</label>
                 <input
                   type="username"
@@ -93,6 +96,7 @@ class Login extends Component {
                   onChange={this.onChange}
                   value={this.state.username}
                 ></input>
+                {/*Displays input textbox for password*/}
                   <label>Password</label>
                   <input
                     type="password"
@@ -101,6 +105,7 @@ class Login extends Component {
                     onChange={this.onChange}
                     value={this.state.password}
                   ></input>
+                  {/*Displays button for submit */}
                   <button
                     variant="primary"
                     button
@@ -119,9 +124,11 @@ class Login extends Component {
             </div>
           </div>
         </div>
+        {/*Displays login successful prompt */}
         <h1 hidden={!this.state.loggedin} style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
           User successfully logged in.
         </h1>
+        
       </div>
     );
   }
