@@ -6,13 +6,13 @@ import Main from "./components/Main/Main";
 
 function App() {
   return (
-    <Provider store = {store}>
+ 
       <Router>
         <div>
           <Main />
         </div>
       </Router>
-    </Provider>
+
   );
 }
 

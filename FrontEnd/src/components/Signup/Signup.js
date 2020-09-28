@@ -31,7 +31,7 @@ class SignUp extends Component {
   render() {
     return (
       <div>
-      <form onSubmit{this.onSubmit}>
+      <form onSubmit={this.onSubmit}>
         <div className="form-group">
           <div className="signup-form">
             <h1>Sign Up</h1>
