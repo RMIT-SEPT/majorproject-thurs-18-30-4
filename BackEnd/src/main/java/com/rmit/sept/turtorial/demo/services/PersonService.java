@@ -1,24 +1,19 @@
 package com.rmit.sept.turtorial.demo.services;
 
 
-import com.rmit.sept.turtorial.demo.model.Role;
 import com.rmit.sept.turtorial.demo.repositories.PersonRepository;
 import com.rmit.sept.turtorial.demo.exception.PersonException;
 import com.rmit.sept.turtorial.demo.model.Person;
 import com.rmit.sept.turtorial.demo.repositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.HashSet;
-import java.util.Set;
+import java.util.Optional;
 
+@CrossOrigin
 @Service
 public class PersonService {
     @Autowired
@@ -28,6 +23,7 @@ public class PersonService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    // Tries to return a person object via save() method from personRepository, throwing an exception if the person ID exists
     public Person saveOrUpdatePerson(Person person) {
 
         try{
@@ -39,7 +35,8 @@ public class PersonService {
 
     }
 
-
+    // calls the findByPersonIdentifer() method from personRepository using personId, and retuns the instantiated person
+    // throws an exception if the instantiated person is null
     public Person findByPersonIdentifier(String personId){
 
         Person person = personRepository.findByPersonIdentifier(personId.toUpperCase());
@@ -56,6 +53,8 @@ public class PersonService {
     }
 
 
+    // instantiates a person object via findByPersonIdentifier() and deletes the object from repository
+    // throws an exception if the person is null
     public void deletePersonByIdentifier(String personId){
         Person person = personRepository.findByPersonIdentifier(personId.toUpperCase());
 
@@ -66,13 +65,14 @@ public class PersonService {
         personRepository.delete(person);
     }
 
+    // sets the given person with an encoded password and rolls, returning the person object from the save() method
     public void save(Person person) {
         person.setPassword(bCryptPasswordEncoder.encode(person.getPassword()));
         person.setRoles(new HashSet<>(roleRepository.findAll()));
         personRepository.save(person);
     }
 
-    public Person findByUsername(String username) {
+    public Optional<Person> findByUsername(String username) {
         return personRepository.findByUsername(username);
     }
 }

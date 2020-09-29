@@ -21,8 +21,6 @@ public class MapValidationErrorService {
             }
             return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
         }
-
         return null;
-
     }
 }
