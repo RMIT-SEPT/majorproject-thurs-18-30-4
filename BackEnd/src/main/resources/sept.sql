@@ -149,6 +149,26 @@ LOCK TABLES `business_workers` WRITE;
 INSERT INTO `business_workers` VALUES (124,2);
 /*!40000 ALTER TABLE `business_workers` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `bookings`
+--
+
+DROP TABLE IF EXISTS `bookings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `bookings` (
+                            `id` bigint NOT NULL AUTO_INCREMENT,
+                            `business_id` bigint DEFAULT NULL,
+                            `customer_id` bigint DEFAULT NULL,
+                            `worker_id` bigint DEFAULT NULL,
+                            PRIMARY KEY (`id`),
+                            CONSTRAINT `FKiv4ue8a6h8ciramu9cc9q3qcq` FOREIGN KEY (`business_id`) REFERENCES `business` (`id`),
+                            CONSTRAINT `FK6h8ciramu9cc9q3qcqiv4ue8a` FOREIGN KEY (`customer_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

@@ -24,9 +24,11 @@ class SignUp extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+  //changing values as per form input
   onChange(e) {
     this.setState({ [e.target.id]: e.target.value });
   }
+  //submit form
   onSubmit(e){
     e.preventDefault();
 
@@ -77,6 +79,7 @@ class SignUp extends Component {
           console.log("Error occurred: ", error.message);
         }
       });
+      //setting values for console output for person details
     const newPerson = {
       name: this.state.name,
       email: this.state.email,
@@ -101,6 +104,7 @@ class SignUp extends Component {
                   <div className="form-group">
                     <h1>Sign Up</h1>
 
+                    {/*Displays input textbox for name */}
                     <label>Name</label>
                     <input
                       type="text"
@@ -111,6 +115,7 @@ class SignUp extends Component {
                       onChange={this.onChange}
                     ></input>
 
+                      {/*Displays input textbox for username */}
                     <label>Username</label>
                     <input
                       type="text"
@@ -120,6 +125,7 @@ class SignUp extends Component {
                       onChange={this.onChange}
                     ></input>
 
+                      {/*Displays option selection for role */}
                     <label for="role">Account type</label>
                     <select
                       class="form-control"
@@ -132,6 +138,7 @@ class SignUp extends Component {
                       <option>Business Owner</option>
                     </select>
 
+                      {/*Displays input textbox for email */}
                     <label>Email</label>
                     <input
                       type="email"
@@ -141,6 +148,7 @@ class SignUp extends Component {
                       value={this.state.email}
                     ></input>
 
+                      {/*Displays input textbox for password*/}
                     <label>Create Password</label>
                     <input
                       type="password"
@@ -158,7 +166,7 @@ class SignUp extends Component {
                       {this.state.alert_label}
                     </label>
                     <br></br>
-
+                      {/*Displays input textbox for confirm password */}
                     <label>Confirm Password</label>
                     <input
                       className="form-control"
@@ -168,6 +176,7 @@ class SignUp extends Component {
                       value={this.state.confirm_password}
                     ></input>
 
+                      {/*sign up button */}
                     <button
                       variant="primary"
                       disabled={

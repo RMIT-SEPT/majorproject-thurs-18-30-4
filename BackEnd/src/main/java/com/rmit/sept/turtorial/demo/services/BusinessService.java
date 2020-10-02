@@ -19,7 +19,7 @@ public class BusinessService {
         if (business.getId() != null) {
             throw new BusinessException(String.format("New business must not have an id"));
         }
-
+        business.setId(business.getId());
         return businessRepository.save(business);
     }
 
@@ -33,6 +33,4 @@ public class BusinessService {
 
         return business.get();
     }
-
-
 }
