@@ -10,23 +10,27 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/test")
 public class RoleAccess {
+    //set permission to all
     @GetMapping("/all")
     public String publicAccess() {
         return "Public Content.";
     }
-
+    //set permission for customer
+    //access to customer, worker and admin
     @GetMapping("/customer")
     @PreAuthorize("hasRole('CUSTOMER') or hasRole('WORKER') or hasRole('ADMIN')")
     public String customerAccess() {
         return "Customer Access.";
     }
-
+    //set permission for worker
+    //access to worker and admin
     @GetMapping("/worker")
-    @PreAuthorize("hasRole('WORKER')")
+    @PreAuthorize("hasRole('WORKER') or hasRole('ADMIN')")
     public String workerAccess() {
         return "Worker Access.";
     }
-
+    //set permission for admin
+    //access to admin
     @GetMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
     public String adminAccess() {
