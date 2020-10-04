@@ -5,6 +5,8 @@ class Account extends Component {
     return (
       <div>
         <h1> Account</h1>
+
+        <h1> Hello, </h1>
       </div>
     );
   }
