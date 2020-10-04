@@ -27,6 +27,13 @@ public class BookingController {
         return new ResponseEntity<>(booking, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Iterable<Booking>> getAllBookings(@PathVariable() Long id) {
+        Iterable<Booking> bookings = bookingService.findAllBookings();
+
+        return new ResponseEntity<>(bookings, HttpStatus.OK);
+    }
+
     @PostMapping()
     public ResponseEntity<Booking> addBooking(@RequestBody() @Valid Booking booking) {
 

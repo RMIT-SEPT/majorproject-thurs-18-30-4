@@ -21,8 +21,10 @@ public class Booking {
 
     @JsonFormat(pattern ="yyyy-MM-dd")
     public Date created_At;
-    @JsonFormat(pattern ="yyyy-MM-dd")
+    @JsonFormat(pattern ="yyyy-MM-ddTHH-mm")
     public Date booked_At;
+    @JsonFormat(pattern ="yyyy-MM-ddTHH-mm")
+    public Date booked_Till;
 
     public Booking() {
 
@@ -79,5 +81,13 @@ public class Booking {
 
     public void setBooked_At(Date booked_At) {
         this.booked_At = booked_At;
+    }
+
+    public Date getBooked_Till() {
+        return booked_Till;
+    }
+
+    public void setBooked_Till(Date booked_Till) {
+        this.booked_Till = booked_Till;
     }
 }
