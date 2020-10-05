@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-class Bookings extends Component {
+class Makebooking extends Component {
   render() {
     return (
       <div>
-        <h1>Bookings</h1>
+        <h1>Make a booking</h1>
       </div>
     );
   }
 }
-export default Bookings;
+export default Makebooking;

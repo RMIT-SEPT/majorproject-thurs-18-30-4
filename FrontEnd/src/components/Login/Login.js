@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
 import "../Layout/Style/Style..css";
 import axios from "axios";
-import { Redirect, Route, Router } from "react-router-dom";
-import {Dashboard} from  "../Dashboard/Dashboard";
 class Login extends Component {
   constructor() {
     super();
@@ -37,7 +35,6 @@ class Login extends Component {
     }).then(function(response) {
       console.log(response.status);
       // TODO
-      //   navigate to homepage
       //   handle logout in header
       if (response.status === 200){
         axios()
@@ -49,22 +46,18 @@ class Login extends Component {
         window.location.href= "/login";
         if (error.response.status === 400){
           // Empty/bad values
-          // TODO alert label saying "Bad Values"
           alert("Bad Values");
         
         } else if (error.response.status === 401){
           // Login failed
-          // TODO alert label saying "Incorrect Credentials"
           alert("Incorrect credentials");
          
         } else if (error.response.status === 500){
           // Server error
-          // TODO alert box to say "please contact admin"
           alert("Please contact admin");
           
         } else {
           // Unhandled
-          // TODO alert saying "please contact admin and provide following data: " provide response data
           console.log(error.response.status);
           console.log(error.response.data);
           alert("Please contact admin and provide following data: ", error.response.status, ": ", error.response.data);

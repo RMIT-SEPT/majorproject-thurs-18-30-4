@@ -49,7 +49,7 @@ class SignUp extends Component {
         
         // TODO alert user signup successful, navigate to login page
         if(response.status ===200){
-          alert("Signup successful");
+          window.location.href = "/account";
           
           }
     
