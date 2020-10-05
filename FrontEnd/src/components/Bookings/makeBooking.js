@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 
+
+
 class Makebooking extends Component {
   render() {
     return (
       <div>
-        <h1>Make a booking</h1>
+        <div className="makeBooking-header">
+          <h1>Make a Booking</h1>
+        </div>
+      
       </div>
     );
   }

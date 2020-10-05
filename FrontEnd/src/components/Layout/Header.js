@@ -7,8 +7,9 @@ import Main from "../Main/Main";
 import Bookings from "../Bookings/bookings.js";
 import Account from "../Account/Account.js";
 import Makebooking from "../Bookings/makeBooking";
-import { ReactComponent as Logo } from "./Images/Logo.svg";
 import Home from "../Home/Home.js";
+import SelectBusiness from "../Bookings/selectBusiness";
+import { ReactComponent as Logo } from "./Images/Logo.svg";
 import { Dropdown } from "react-bootstrap";
 
 class Header extends Component {
@@ -41,7 +42,7 @@ class Header extends Component {
 
               <Dropdown.Menu>
                 <Dropdown.Item href="/bookings">My Bookings</Dropdown.Item>
-                <Dropdown.Item href="/makebooking">Make A Booking</Dropdown.Item>
+                <Dropdown.Item href="/SelectBusiness">Make A Booking</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
 
@@ -71,6 +72,9 @@ class Header extends Component {
           </Route>
           <Route path="/Makebooking">
             <Makebooking />
+          </Route>
+          <Route path="/SelectBusiness">
+          <SelectBusiness/>
           </Route>
         </Switch>
       </Router>
