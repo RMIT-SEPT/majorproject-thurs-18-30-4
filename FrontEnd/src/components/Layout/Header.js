@@ -19,7 +19,7 @@ class Header extends Component {
   render() {
     return (
       <Router>
-        <div class="wrapper">
+        <div className="wrapper">
           <nav className="desktop-nav">
             <Link to="/login">
               <div className="login"> Log In</div>

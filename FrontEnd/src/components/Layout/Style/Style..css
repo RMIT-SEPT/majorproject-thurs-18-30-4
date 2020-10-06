@@ -101,6 +101,28 @@ text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 
 }
 
+.makeBooking{
+  height:100%;
+  margin: 0;
+}
+
+.makeBooking-caption{
+  position: absolute;
+width: 100%;
+
+top: 250px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+text-align: center;
+
+
+color: #FFFFFF;
+text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); 
+}
+
 
 /*
 @font-face{
