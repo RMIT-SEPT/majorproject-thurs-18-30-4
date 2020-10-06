@@ -35,7 +35,7 @@ class Header extends Component {
             </Link>
 
             {/*Trial button dropdowns- shows*/}
-            <Dropdown>
+            <Dropdown style={{marginLeft: "740%", marginTop: "-22%"}}>
               <Dropdown.Toggle variant = "dark" id="dropdown-basic" >
                 Bookings
               </Dropdown.Toggle>
