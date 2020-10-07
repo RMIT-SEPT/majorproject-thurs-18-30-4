@@ -24,9 +24,11 @@ class SignUp extends Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
+  //changing values as per form input
   onChange(e) {
     this.setState({ [e.target.id]: e.target.value });
   }
+  //submit form
   onSubmit(e){
     e.preventDefault();
 
@@ -46,21 +48,17 @@ class SignUp extends Component {
         console.log(response.status);
         
         // TODO alert user signup successful, navigate to login page
-        if(response.status ===200){
+        if(response.status === 200){
           alert("Signup successful");
-          
           }
-    
-
-
       }).catch(function(error){
         if (error.response){
           console.log(error.response.status);
           console.log(error.response.data);
-          if (error.response.status === 400){
+          if (error.response.status === 400){ 
             // acc exists
             // TODO alert acc exists
-            alert("Username is not valid or has already been taken");
+            alert("Username / Email is not valid or has already been taken");
           } else if (error.response.status === 500){
             // server err
             // TODO alert contact admin
@@ -77,6 +75,7 @@ class SignUp extends Component {
           console.log("Error occurred: ", error.message);
         }
       });
+      //setting values for console output for person details
     const newPerson = {
       name: this.state.name,
       email: this.state.email,
@@ -101,6 +100,7 @@ class SignUp extends Component {
                   <div className="form-group">
                     <h1>Sign Up</h1>
 
+                    {/*Displays input textbox for name */}
                     <label>Name</label>
                     <input
                       type="text"
@@ -111,6 +111,7 @@ class SignUp extends Component {
                       onChange={this.onChange}
                     ></input>
 
+                      {/*Displays input textbox for username */}
                     <label>Username</label>
                     <input
                       type="text"
@@ -120,6 +121,7 @@ class SignUp extends Component {
                       onChange={this.onChange}
                     ></input>
 
+                      {/*Displays option selection for role */}
                     <label for="role">Account type</label>
                     <select
                       class="form-control"
@@ -131,7 +133,7 @@ class SignUp extends Component {
                       <option>Worker</option>
                       <option>Business Owner</option>
                     </select>
-
+                      {/*Displays input textbox for email */}
                     <label>Email</label>
                     <input
                       type="email"
@@ -141,6 +143,7 @@ class SignUp extends Component {
                       value={this.state.email}
                     ></input>
 
+                      {/*Displays input textbox for password*/}
                     <label>Create Password</label>
                     <input
                       type="password"
@@ -158,7 +161,7 @@ class SignUp extends Component {
                       {this.state.alert_label}
                     </label>
                     <br></br>
-
+                      {/*Displays input textbox for confirm password */}
                     <label>Confirm Password</label>
                     <input
                       className="form-control"
@@ -167,7 +170,7 @@ class SignUp extends Component {
                       onChange={this.onChange}
                       value={this.state.confirm_password}
                     ></input>
-
+                      {/*sign up button */}
                     <button
                       variant="primary"
                       disabled={
