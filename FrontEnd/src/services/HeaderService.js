@@ -11,6 +11,6 @@ export default function headerService(){
             //that involves security tokens called bearer tokens.
             AGME_Authorization: 'Bearer ' + user.accessToken};
     } else{
-        return {};
+        return window.alert("User unauthorized");
     }
 }
