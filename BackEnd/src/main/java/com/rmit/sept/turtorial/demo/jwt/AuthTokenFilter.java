@@ -58,7 +58,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 
     //method to parse the JWT
     private String parseJwt(HttpServletRequest request) {
-        String headerAuth = request.getHeader("Authorization");
+        String headerAuth = request.getHeader("AGME_Authorization");
         //header auth set to start with "bearer" due to its token type being bearer
         //Bearer Authentication
         if (StringUtils.hasText(headerAuth) && headerAuth.startsWith("Bearer")) {

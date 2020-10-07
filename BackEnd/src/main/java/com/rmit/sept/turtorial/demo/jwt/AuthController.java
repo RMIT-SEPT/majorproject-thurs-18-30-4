@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/auth")
 // controller class to manage the authentication
-public class AuthController {
+public class    AuthController {
     //variable for authentication manager
     @Autowired
     AuthenticationManager authenticationManager;
@@ -38,7 +38,7 @@ public class AuthController {
     //variable for role repository
     @Autowired
     RoleRepository roleRepository;
-    //variable for password encooder
+    //variable for password encoder
     @Autowired
     PasswordEncoder encoder;
     // variable for jwt utilities
