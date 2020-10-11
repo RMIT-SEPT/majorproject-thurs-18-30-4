@@ -8,11 +8,17 @@ import Bookings from '../Bookings/bookings.js'
 import Account from '../Account/Account.js'
 import { ReactComponent as Logo } from './Images/Logo.svg';
 import Home from "../Home/Home.js";
+import Customer from "../Account/Customer.js";
+import { signout } from "../../actions/projectActions";
 
 class Header extends Component {
+  constructor(props){
+    super (props);
+  }
   try = () => {
     this.props.history.push("/Dashboard");
   };
+
   render() {
     return (
       <Router>
@@ -55,6 +61,7 @@ class Header extends Component {
           <Route path="/account">
             <Account />
           </Route>
+          <Route path="/customer" component={Customer} />
         </Switch>
       </Router>
     );
