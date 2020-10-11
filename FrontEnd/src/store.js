@@ -5,9 +5,10 @@ import rootReducer from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 //The redux store will feature actions and reducer together
+
 const initialState = {};
 const middleware = [thunk];
-
+/*
 let store;
 
 if (window.navigator.userAgent.includes("Chrome")){
@@ -26,6 +27,7 @@ if (window.navigator.userAgent.includes("Chrome")){
             applyMiddleware(...middleware))
     );
 }
+*/
 //pass the combineReducers() we created in /reducers/index.js to createStore();
 //apply it with the extensions we imported
 const store = createStore(rootReducer,composeWithDevTools(applyMiddleware(...middleware)));
