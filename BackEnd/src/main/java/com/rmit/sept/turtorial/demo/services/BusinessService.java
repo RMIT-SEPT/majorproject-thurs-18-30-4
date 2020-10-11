@@ -33,4 +33,8 @@ public class BusinessService {
 
         return business.get();
     }
+
+    public Iterable<Business> findAllBusinesses() {
+        return businessRepository.findAll();
+    }
 }
