@@ -5,8 +5,9 @@ import rootReducer from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 //The redux store will feature actions and reducer together
-const middleware = [thunk];
 
+const initialState = {};
+const middleware = [thunk];
 /*
 let store;
 

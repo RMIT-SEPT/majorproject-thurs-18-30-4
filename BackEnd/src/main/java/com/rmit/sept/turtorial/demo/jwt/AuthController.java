@@ -65,6 +65,7 @@ public class    AuthController {
         //return the response when login is successful with jwt token, id, username, email and role
         return ResponseEntity.ok(new JwtResponse(jwt,
                 userDetails.getId(),
+                userDetails.getName(),
                 userDetails.getUsername(),
                 userDetails.getEmail(),
                 roles));

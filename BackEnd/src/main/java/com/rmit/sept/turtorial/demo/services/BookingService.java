@@ -68,4 +68,8 @@ public class BookingService {
         return bookingRepository.save(booking);
     }
 
+    @Transactional
+    public Iterable<Booking> findAllBookings() {
+        return bookingRepository.findAll();
+    }
 }
