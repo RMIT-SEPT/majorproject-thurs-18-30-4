@@ -48,21 +48,17 @@ class SignUp extends Component {
         console.log(response.status);
         
         // TODO alert user signup successful, navigate to login page
-        if(response.status ===200){
+        if(response.status === 200){
           alert("Signup successful");
-          
           }
-    
-
-
       }).catch(function(error){
         if (error.response){
           console.log(error.response.status);
           console.log(error.response.data);
-          if (error.response.status === 400){
+          if (error.response.status === 400){ 
             // acc exists
             // TODO alert acc exists
-            alert("Username is not valid or has already been taken");
+            alert("Username / Email is not valid or has already been taken");
           } else if (error.response.status === 500){
             // server err
             // TODO alert contact admin
@@ -137,7 +133,6 @@ class SignUp extends Component {
                       <option>Worker</option>
                       <option>Business Owner</option>
                     </select>
-
                       {/*Displays input textbox for email */}
                     <label>Email</label>
                     <input
@@ -175,7 +170,6 @@ class SignUp extends Component {
                       onChange={this.onChange}
                       value={this.state.confirm_password}
                     ></input>
-
                       {/*sign up button */}
                     <button
                       variant="primary"

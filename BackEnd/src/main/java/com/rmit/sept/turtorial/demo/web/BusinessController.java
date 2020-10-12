@@ -28,6 +28,13 @@ public class BusinessController {
         return new ResponseEntity<>(business, HttpStatus.OK);
     }
 
+    @GetMapping("/all/{id}")
+    public ResponseEntity<Iterable<Business>> getAllBusinesses() {
+        Iterable<Business> businesses = businessService.findAllBusinesses();
+
+        return new ResponseEntity<>(businesses, HttpStatus.OK);
+    }
+
     // calls the createBusiness() method from businessService and returns a response entity with the created business
     @PostMapping()
     public ResponseEntity<Business> addBusiness(@RequestBody() @Valid Business business) {

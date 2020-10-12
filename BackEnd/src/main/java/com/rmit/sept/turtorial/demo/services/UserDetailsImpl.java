@@ -16,18 +16,20 @@ public class UserDetailsImpl implements UserDetails {
     // used during deserialization to verify that the sender and receiver of a serialized object
     private static final long serialVersionUID = 1L;
 
-    //declare variables for id, username, email, password and authorities
+    //declare variables for id, name, username, email, password and authorities
     private Long id;
+    private String name;
     private String username;
     private String email;
     @JsonIgnore
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
-    //constructor for user details implementation with id, username,password and authorities field
-    public UserDetailsImpl(Long id, String username, String email, String password,
+    //constructor for user details implementation with id, name, username,password and authorities field
+    public UserDetailsImpl(Long id, String name, String username, String email, String password,
                            Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
+        this.name = name;
         this.username = username;
         this.email = email;
         this.password = password;
@@ -42,6 +44,7 @@ public class UserDetailsImpl implements UserDetails {
 
         return new UserDetailsImpl(
                 user.getId(),
+                user.getName(),
                 user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
@@ -57,6 +60,9 @@ public class UserDetailsImpl implements UserDetails {
     public Long getId() {
         return id;
     }
+
+    //getter for name
+    public String getName() { return name; }
 
     //getter for email
     public String getEmail() {
@@ -109,4 +115,5 @@ public class UserDetailsImpl implements UserDetails {
         UserDetailsImpl user = (UserDetailsImpl) o;
         return Objects.equals(id, user.id);
     }
+
 }

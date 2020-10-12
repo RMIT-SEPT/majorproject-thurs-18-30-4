@@ -81,6 +81,20 @@ text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
       text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
+.profile-container{  
+  /* Auto Layout */
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+
+  position: absolute; 
+  width: 950px;
+  height: 310px;
+  left: 300px;
+  top: 150px;
+  color: #FFFFFF;
+  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); 
+} 
 
 /*
 @font-face{

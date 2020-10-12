@@ -6,7 +6,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="entityManagerFactory" value="6ae0e8da-039d-4d99-a6f4-2bad3ae5841c" />
+          <factory-entry name="entityManagerFactory" value="f864463a-29ba-4a12-912f-5c4675bfd568" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
@@ -137,5 +137,6 @@
     <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.6.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:5.2.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.2.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
   </component>
 </module>
