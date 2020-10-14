@@ -162,6 +162,8 @@ CREATE TABLE `bookings` (
                             `business_id` bigint DEFAULT NULL,
                             `customer_id` bigint DEFAULT NULL,
                             `worker_id` bigint DEFAULT NULL,
+                            `booking_start` bigint DEFAULT NULL,
+                            `booking_end` bigint DEFAULT NULL,
                             PRIMARY KEY (`id`),
                             CONSTRAINT `FKiv4ue8a6h8ciramu9cc9q3qcq` FOREIGN KEY (`business_id`) REFERENCES `business` (`id`),
                             CONSTRAINT `FK6h8ciramu9cc9q3qcqiv4ue8a` FOREIGN KEY (`customer_id`) REFERENCES `users` (`id`)

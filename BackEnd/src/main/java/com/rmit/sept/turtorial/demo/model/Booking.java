@@ -3,6 +3,7 @@ package com.rmit.sept.turtorial.demo.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 @Entity
@@ -21,8 +22,12 @@ public class Booking {
 
     @JsonFormat(pattern ="yyyy-MM-dd")
     public Date created_At;
+
+    @NotBlank(message = "booking start time required")
     @JsonFormat(pattern ="yyyy-MM-ddTHH-mm")
     public Date booked_At;
+
+    @NotBlank(message = "booking end time required")
     @JsonFormat(pattern ="yyyy-MM-ddTHH-mm")
     public Date booked_Till;
 
