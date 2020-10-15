@@ -20,6 +20,7 @@ public class BookingController {
         this.bookingService = bookingService;
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping(value = "/{id}")
     public ResponseEntity<Booking> getBooking(@PathVariable() Long id) {
         Booking booking = bookingService.findBookingById(id);
@@ -27,6 +28,15 @@ public class BookingController {
         return new ResponseEntity<>(booking, HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Iterable<Booking>> getAllBookings(@PathVariable() Long id) {
+        Iterable<Booking> bookings = bookingService.findAllBookings();
+
+        return new ResponseEntity<>(bookings, HttpStatus.OK);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping()
     public ResponseEntity<Booking> addBooking(@RequestBody() @Valid Booking booking) {
 
@@ -35,6 +45,7 @@ public class BookingController {
         return new ResponseEntity<>(booking, HttpStatus.CREATED);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @PutMapping(value = "/{id}")
     public ResponseEntity<Booking> updateBooking(
             @PathVariable("id") long id, @RequestBody() @Valid Booking booking) {
@@ -44,6 +55,7 @@ public class BookingController {
         return new ResponseEntity<>(booking, HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> cancelBooking(@PathVariable("id") long id) {
 
