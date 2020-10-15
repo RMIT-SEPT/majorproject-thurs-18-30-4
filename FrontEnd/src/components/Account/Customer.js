@@ -33,10 +33,8 @@ export default class Customer extends Component {
 
   render() {
     return (
-      <div className="container">
-        <header className="jumbotron">
-          <h3>{this.state.content}</h3>
-        </header>
+      <div className="dashboard-container">
+          <h1>{this.state.content}</h1>
       </div>
     );
   }

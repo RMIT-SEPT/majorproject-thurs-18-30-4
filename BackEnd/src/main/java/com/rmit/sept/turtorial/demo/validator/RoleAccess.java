@@ -20,20 +20,20 @@ public class RoleAccess {
     @GetMapping("/customer")
     @PreAuthorize("hasRole('CUSTOMER') or hasRole('WORKER') or hasRole('ADMIN')")
     public String customerAccess() {
-        return "Customer Access.";
+        return "Customer Dashboard | ALL ACCESS";
     }
     //set permission for worker
     //access to worker and admin
     @GetMapping("/worker")
     @PreAuthorize("hasRole('WORKER') or hasRole('ADMIN')")
     public String workerAccess() {
-        return "Worker Access.";
+        return "Worker Dashboard | WORKER & ADMIN ACCESS";
     }
     //set permission for admin
     //access to admin
     @GetMapping("/admin")
     @PreAuthorize("hasRole('ADMIN')")
     public String adminAccess() {
-        return "Admin Access.";
+        return "Admin Dashboard | ADMIN ACCESS";
     }
 }
