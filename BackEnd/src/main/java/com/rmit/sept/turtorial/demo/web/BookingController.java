@@ -1,6 +1,8 @@
 package com.rmit.sept.turtorial.demo.web;
 
 import com.rmit.sept.turtorial.demo.model.Booking;
+import com.rmit.sept.turtorial.demo.rest.request.BookingRequest;
+import com.rmit.sept.turtorial.demo.rest.response.MessageResponse;
 import com.rmit.sept.turtorial.demo.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -38,11 +40,13 @@ public class BookingController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping()
-    public ResponseEntity<Booking> addBooking(@RequestBody() @Valid Booking booking) {
+    public ResponseEntity<?> addBooking(@RequestBody @Valid BookingRequest bookingRequest) {
+        Booking booking = new Booking(100L, bookingRequest.getBusinessId(), bookingRequest.getCustomerId(),
+                bookingRequest.getWorkerId(), bookingRequest.getBooked_At(), bookingRequest.getBooked_Till());
 
-        Booking addedBooking = bookingService.createBooking(booking);
+        bookingService.createBooking(booking);
 
-        return new ResponseEntity<>(booking, HttpStatus.CREATED);
+        return ResponseEntity.ok(new MessageResponse("Booking created successfully!"));
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
@@ -57,7 +61,7 @@ public class BookingController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> cancelBooking(@PathVariable("id") long id) {
+    public ResponseEntity<?> cancelBooking(@PathVariable("id") long id) {
 
         boolean cancelled = bookingService.cancel(id);
         if (cancelled) {

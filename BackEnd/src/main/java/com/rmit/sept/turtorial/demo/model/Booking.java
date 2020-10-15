@@ -13,8 +13,11 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
+    @NotBlank(message = "business id cannot be blank")
     public Long businessId;
+    @NotBlank(message = "customer id cannot be blank")
     public Long customerId;
+    @NotBlank(message = "worker id cannot be blank")
     public Long workerId;
 
     // boolean variable representing the state of the booking
@@ -33,6 +36,15 @@ public class Booking {
 
     public Booking() {
 
+    }
+
+    public Booking(Long id, Long businessId, Long customerId, Long workerId, Date booked_At, Date booked_Till) {
+        this.id = id;
+        this.businessId = businessId;
+        this.customerId = customerId;
+        this.workerId = workerId;
+        this.booked_At = booked_At;
+        this.booked_Till = booked_Till;
     }
 
     public Long getId() {
