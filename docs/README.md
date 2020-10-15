@@ -17,7 +17,7 @@
 Whilst installing MySQL you would have been prompted to create a root user for the MySQL server, add the root account
 details to `./Backend/src/main/resources/application.properties` under the `spring.datasource` tags.
 
-Run the backend file `DemoApplication.java` to begin executing the backend.
+Run the backend file `DemoApplication.java` to begin executing the backend. Please make sure to change password in application.properties file from "Canteen88!" to desired SQL password. 
 
 Run the frontend by changing your current working directory to `./Frontend/`, via cmd run the command `npm start`.
 
