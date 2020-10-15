@@ -28,7 +28,7 @@ public class BusinessController {
         return new ResponseEntity<>(business, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/all/{id}")
     public ResponseEntity<Iterable<Business>> getAllBusinesses() {
         Iterable<Business> businesses = businessService.findAllBusinesses();
 
