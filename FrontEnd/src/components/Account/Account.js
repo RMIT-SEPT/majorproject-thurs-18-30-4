@@ -45,7 +45,7 @@ class Account extends Component {
             loggedinUser.roles.map((role, index) => <li key={index}>{role}</li>)}
         </ul>
         <a href="/login" className="nav-link" onClick={this.signOut}>
-          LogOut
+          Log Out
         </a>
       </div>
     );
