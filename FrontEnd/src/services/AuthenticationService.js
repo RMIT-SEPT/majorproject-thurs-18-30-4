@@ -9,7 +9,7 @@ class AuthenticationService{
         //send POST request with username and password
         .post(URL_API + "signin", {username, password})
         .then((response) => {
-            if(response.data.access_token){
+            if(response.data.accessToken){
                 localStorage.setItem("user",JSON.stringify(response.data));
             }
             return response.data;
