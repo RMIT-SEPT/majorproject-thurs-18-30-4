@@ -11,9 +11,9 @@ class Makebooking extends Component {
   constructor() {
     super();
     this.state={
-      "date": ""
+      "date": new Date(),
     }
-    this.onChange= this.onChange.bind(this);
+    this.onChange= date=> this.setState({date})
     this.onSubmit= this.onSubmit.bind(this);
     
   }
@@ -33,7 +33,7 @@ class Makebooking extends Component {
       data: {
        date: this.date
       }
-    }).then(function(response) {
+    }).then(function() {
       console.log(this.date);
     })};
    
@@ -57,7 +57,7 @@ class Makebooking extends Component {
         onChange={this.onChange}
         value= {this.state.date}
         />
-        <button onClick={this.onSubmit}>
+        <button onClick={this.onSubmit} style= {{marginLeft: "48%", marginTop: "5%"}}>
         Submit
       </button>
        

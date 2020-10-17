@@ -21,9 +21,9 @@ public class Booking {
 
     @JsonFormat(pattern ="yyyy-MM-dd")
     public Date created_At;
-    @JsonFormat(pattern ="yyyy-MM-ddTHH-mm")
+    @JsonFormat(pattern ="yyyy-MM-dd")
     public Date booked_At;
-    @JsonFormat(pattern ="yyyy-MM-ddTHH-mm")
+    @JsonFormat(pattern ="yyyy-MM-dd")
     public Date booked_Till;
 
     public Booking() {

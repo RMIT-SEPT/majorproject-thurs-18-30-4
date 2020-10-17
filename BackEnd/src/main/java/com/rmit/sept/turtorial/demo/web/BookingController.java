@@ -29,8 +29,8 @@ public class BookingController {
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<Iterable<Booking>> getAllBookings(@PathVariable() Long id) {
+    @GetMapping(value = "/all/{id}")
+    public ResponseEntity<Iterable<Booking>> getAllBookings() {
         Iterable<Booking> bookings = bookingService.findAllBookings();
 
         return new ResponseEntity<>(bookings, HttpStatus.OK);
