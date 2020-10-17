@@ -1,33 +1,67 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
+import { createHistory } from "../../services/HistoryService";
 import SignUp from "../Signup/Signup.js";
 import Login from "../Login/Login.js";
 import Main from "../Main/Main";
+<<<<<<< HEAD
 import Bookings from "../Bookings/bookings.js";
 import Account from "../Account/Account.js";
 import Makebooking from "../Bookings/makeBooking";
+=======
+import Bookings from '../Bookings/bookings.js'
+import { connect } from "react-redux";
+import Account from '../Account/Account.js'
+import { ReactComponent as Logo } from './Images/Logo.svg';
+>>>>>>> develop
 import Home from "../Home/Home.js";
 import SelectBusiness from "../Bookings/selectBusiness";
 import { ReactComponent as Logo } from "./Images/Logo.svg";
 import { Dropdown } from "react-bootstrap";
 import Customer from "../Account/Customer.js";
-import { signout } from "../../actions/projectActions";
+import Worker from "../Account/Worker";
+import Admin from "../Account/Admin";
+import { signout, clearMessage } from "../../actions/projectActions";
 
 
 class Header extends Component {
   constructor(props){
     super (props);
+
+    this.state={
+      showAdminBoard: false,
+      showWorkerBoard: false,
+      currentUser: undefined
+    };
+    createHistory.listen((location) =>{
+      props.dispatch(clearMessage());
+    });
   }
-  try = () => {
-    this.props.history.push("/Dashboard");
-  };
+  componentDidMount() {
+    const user = this.props.user;
+
+    if (user) {
+      this.setState({
+        currentUser: user,
+        showWorkerBoard: user.roles.includes("ROLE_WORKER"),
+        showAdminBoard: user.roles.includes("ROLE_ADMIN")
+      });
+    }
+  }
 
   render() {
+    const { currentUser, showWorkerBoard, showAdminBoard} = this.state;
     return (
+<<<<<<< HEAD
       <Router>
         <div className="wrapper">
+=======
+      <Router history={createHistory}>
+        <div class="wrapper">
+>>>>>>> develop
           <nav className="desktop-nav">
+    
             <Link to="/login">
               <div className="login"> Log In</div>
             </Link>
@@ -85,10 +119,24 @@ class Header extends Component {
           <SelectBusiness/>
           </Route>
           <Route path="/customer" component={Customer} />
+<<<<<<< HEAD
 
+=======
+          <Route path="/worker" component={Worker} />
+          <Route path="/admin" component={Admin} />
+>>>>>>> develop
         </Switch>
       </Router>
     );
   }
 }
-export default Header;
+function mapStateToProps(state) {
+  const { user } = state.authenticationReducer;
+  return {
+    user,
+  };
+}
+
+export default connect(mapStateToProps)(Header);
+
+//export default Header;
