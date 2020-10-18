@@ -1,13 +1,16 @@
 package app.web;
 
 import app.model.Booking;
+import app.rest.response.MessageResponse;
 import app.services.BookingService;
+import com.rmit.sept.turtorial.demo.rest.request.BookingRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
 @CrossOrigin
 @RestController
 @RequestMapping("api/bookings")
@@ -28,7 +31,7 @@ public class BookingController {
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping(value = "/all/{id}")
+    @GetMapping()
     public ResponseEntity<Iterable<Booking>> getAllBookings() {
         Iterable<Booking> bookings = bookingService.findAllBookings();
 
@@ -37,11 +40,13 @@ public class BookingController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping()
-    public ResponseEntity<Booking> addBooking(@RequestBody() @Valid Booking booking) {
+    public ResponseEntity<?> addBooking(@RequestBody @Valid BookingRequest bookingRequest) {
+        Booking booking = new Booking(100L, bookingRequest.getBusinessId(), bookingRequest.getCustomerId(),
+                bookingRequest.getWorkerId(), bookingRequest.getBooked_At(), bookingRequest.getBooked_Till());
 
-        Booking addedBooking = bookingService.createBooking(booking);
+        bookingService.createBooking(booking);
 
-        return new ResponseEntity<>(booking, HttpStatus.CREATED);
+        return ResponseEntity.ok(new MessageResponse("Booking created successfully!"));
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
@@ -56,7 +61,7 @@ public class BookingController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> cancelBooking(@PathVariable("id") long id) {
+    public ResponseEntity<?> cancelBooking(@PathVariable("id") long id) {
 
         boolean cancelled = bookingService.cancel(id);
         if (cancelled) {

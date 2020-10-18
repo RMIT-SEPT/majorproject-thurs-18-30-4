@@ -33,6 +33,10 @@ public class SignupRequest {
     //confirm password field
     private String passwordConfirm;
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     //getter for description
     public String getDesc() { return desc; }
 
