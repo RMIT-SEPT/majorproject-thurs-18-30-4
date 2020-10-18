@@ -1,7 +1,8 @@
 package com.rmit.sept.turtorial.demo.services;
 
-import com.rmit.sept.turtorial.demo.exception.BusinessException;
-import com.rmit.sept.turtorial.demo.model.Business;
+import app.exception.BusinessException;
+import app.model.Business;
+import app.services.BusinessService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

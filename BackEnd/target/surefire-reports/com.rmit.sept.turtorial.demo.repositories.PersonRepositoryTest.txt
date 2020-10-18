@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.rmit.sept.turtorial.demo.repositories.PersonRepositoryTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 16.328 s <<< FAILURE! - in com.rmit.sept.turtorial.demo.repositories.PersonRepositoryTest
-whenFindByPersonIdentifier_thenReturnPerson  Time elapsed: 0.019 s  <<< ERROR!
-java.lang.NullPointerException
-	at com.rmit.sept.turtorial.demo.repositories.PersonRepositoryTest.whenFindByPersonIdentifier_thenReturnPerson(PersonRepositoryTest.java:27)
-

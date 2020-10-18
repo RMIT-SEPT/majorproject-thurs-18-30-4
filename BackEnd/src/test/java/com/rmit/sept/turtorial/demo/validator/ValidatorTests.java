@@ -1,5 +1,6 @@
 package com.rmit.sept.turtorial.demo.validator;
 
+import app.validator.PersonValidator;
 import org.junit.jupiter.api.Test;
 
 public class ValidatorTests {

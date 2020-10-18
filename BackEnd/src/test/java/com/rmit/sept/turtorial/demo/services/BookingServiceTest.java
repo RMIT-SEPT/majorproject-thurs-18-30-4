@@ -1,12 +1,11 @@
 package com.rmit.sept.turtorial.demo.services;
 
-import com.rmit.sept.turtorial.demo.exception.BookingException;
-import com.rmit.sept.turtorial.demo.model.Booking;
-import com.rmit.sept.turtorial.demo.model.Business;
+import app.exception.BookingException;
+import app.model.Booking;
+import app.services.BookingService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;

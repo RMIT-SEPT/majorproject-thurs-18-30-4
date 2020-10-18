@@ -1,10 +1,8 @@
 package com.rmit.sept.turtorial.demo.repositories;
 
-import com.rmit.sept.turtorial.demo.model.Person;
+import app.model.Person;
+import app.repositories.PersonRepository;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 

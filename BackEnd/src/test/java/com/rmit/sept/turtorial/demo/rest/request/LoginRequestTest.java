@@ -1,6 +1,7 @@
 package com.rmit.sept.turtorial.demo.rest.request;
 
-import com.rmit.sept.turtorial.demo.model.Person;
+import app.model.Person;
+import app.rest.request.LoginRequest;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

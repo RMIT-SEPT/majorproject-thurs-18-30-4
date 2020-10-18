@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.rmit.sept.turtorial.demo.services.PersonServiceTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.025 s <<< FAILURE! - in com.rmit.sept.turtorial.demo.services.PersonServiceTests
-testFindByUsername  Time elapsed: 0.017 s  <<< ERROR!
-java.lang.NullPointerException
-	at com.rmit.sept.turtorial.demo.services.PersonServiceTests.init(PersonServiceTests.java:21)
-

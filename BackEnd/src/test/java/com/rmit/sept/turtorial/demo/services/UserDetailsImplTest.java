@@ -1,13 +1,10 @@
 package com.rmit.sept.turtorial.demo.services;
 
-import com.rmit.sept.turtorial.demo.model.Person;
+import app.model.Person;
+import app.services.UserDetailsImpl;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.security.core.GrantedAuthority;
-
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

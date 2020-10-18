@@ -1,12 +1,11 @@
 package com.rmit.sept.turtorial.demo.services;
 
-import com.rmit.sept.turtorial.demo.exception.PersonException;
-import com.rmit.sept.turtorial.demo.model.Business;
-import com.rmit.sept.turtorial.demo.model.Person;
+import app.exception.PersonException;
+import app.model.Person;
+import app.services.PersonService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;

@@ -1,15 +1,12 @@
 package com.rmit.sept.turtorial.demo.services;
 
 
-import com.rmit.sept.turtorial.demo.DemoApplication;
-import com.rmit.sept.turtorial.demo.model.Person;
-import com.rmit.sept.turtorial.demo.repositories.PersonRepository;
+import app.model.Person;
+import app.services.UserDetailsServiceImpl;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
