@@ -1,8 +1,8 @@
-package com.rmit.sept.turtorial.demo.web;
+package com.rmit.sept.turtorial.test.web;
 
-import com.rmit.sept.turtorial.demo.model.Person;
-import com.rmit.sept.turtorial.demo.services.MapValidationErrorService;
-import com.rmit.sept.turtorial.demo.services.PersonService;
+import app.model.Person;
+import app.services.MapValidationErrorService;
+import app.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

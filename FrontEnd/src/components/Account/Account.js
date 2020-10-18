@@ -15,6 +15,7 @@ class Account extends Component {
     this.props.dispatch(signout());
   }
 
+
   render() {
     const { user: loggedinUser } = this.props;
 

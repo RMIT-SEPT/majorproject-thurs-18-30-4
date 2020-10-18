@@ -1,4 +1,4 @@
-package com.rmit.sept.turtorial.demo.jwt;
+package com.rmit.sept.turtorial.test.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Clock;
