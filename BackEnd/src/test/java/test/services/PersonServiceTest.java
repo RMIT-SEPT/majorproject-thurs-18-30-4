@@ -1,4 +1,4 @@
-package com.rmit.sept.turtorial.demo.services;
+package test.services;
 
 import app.exception.PersonException;
 import app.model.Person;

@@ -1,4 +1,4 @@
-package com.rmit.sept.turtorial.demo.jwt;
+package com.rmit.sept.turtorial.test.jwt;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

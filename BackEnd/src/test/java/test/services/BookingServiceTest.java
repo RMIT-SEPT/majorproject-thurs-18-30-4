@@ -1,4 +1,4 @@
-package com.rmit.sept.turtorial.demo.services;
+package test.services;
 
 import app.exception.BookingException;
 import app.model.Booking;

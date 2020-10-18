@@ -1,4 +1,4 @@
-package com.rmit.sept.turtorial.demo.repositories;
+package test.repositories;
 
 import app.model.Person;
 import app.repositories.PersonRepository;

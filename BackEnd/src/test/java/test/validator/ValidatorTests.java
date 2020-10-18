@@ -1,4 +1,4 @@
-package com.rmit.sept.turtorial.demo.validator;
+package test.validator;
 
 import app.validator.PersonValidator;
 import org.junit.jupiter.api.Test;

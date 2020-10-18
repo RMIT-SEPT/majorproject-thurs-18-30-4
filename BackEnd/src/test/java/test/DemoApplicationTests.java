@@ -1,4 +1,4 @@
-package com.rmit.sept.turtorial.demo;
+package test;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

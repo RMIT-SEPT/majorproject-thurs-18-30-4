@@ -1,4 +1,4 @@
-package com.rmit.sept.turtorial.demo.rest.request;
+package test.rest.request;
 
 import app.model.Person;
 import app.rest.request.LoginRequest;

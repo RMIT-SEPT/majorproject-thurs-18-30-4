@@ -1,4 +1,4 @@
-package com.rmit.sept.turtorial.demo.web;
+package com.rmit.sept.turtorial.test.web;
 
 import app.model.Person;
 import app.services.MapValidationErrorService;
