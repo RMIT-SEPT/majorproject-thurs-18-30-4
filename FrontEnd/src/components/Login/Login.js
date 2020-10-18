@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
 import "../Layout/Style/Style..css";
+import axios from "axios";
 import { connect } from "react-redux";
 import { Redirect, Route } from "react-router-dom";
 import { signin } from "../../actions/projectActions";
@@ -40,6 +41,62 @@ class Login extends Component {
   onSubmit(event) {
     event.preventDefault();
     console.log(this.state);
+    
+ 
+    // REST request
+    axios({
+      method: "post",
+      url: "http://localhost:8080/api/auth/signin",
+      data: {
+        username: this.state.username,
+        password: this.state.password
+      }
+    }).then(function(response) {
+      console.log(response.status);
+      // TODO
+      //   handle logout in header
+      if (response.status === 200){
+        axios()
+        localStorage.setItem("AUTH_TOKEN", response.data.accessToken);
+        window.location.href = "/account";
+        }
+    }).catch(function(error){
+      if (error.response){
+        window.location.href= "/login";
+        if (error.response.status === 400){
+          // Empty/bad values
+          alert("Bad Values");
+        
+        } else if (error.response.status === 401){
+          // Login failed
+          alert("Incorrect credentials");
+         
+        } else if (error.response.status === 500){
+          // Server error
+          alert("Please contact admin");
+          
+        } else {
+          // Unhandled
+          console.log(error.response.status);
+          console.log(error.response.data);
+          alert("Please contact admin and provide following data: ", error.response.status, ": ", error.response.data);
+          
+        }
+      } else if (error.request){
+        console.log("Request made, no response");
+        console.log(error.request);
+        
+      } else{
+        console.log("Error occurred: ", error.message);
+        
+      }
+    });
+    if (localStorage.getItem("AUTH_TOKEN")){
+      this.setState({loggedin: true})
+
+      // TODO Bind to "log out" button in header
+      // localStorage.removeItem("AUTH_TOKEN");
+
     //set the state (logging_in to true)
     this.setState({
       logging_in: true
@@ -67,8 +124,9 @@ class Login extends Component {
       this.setState({
         logging_in: false
       });
+
     }
-  }  
+  }}; 
 
   render() {
     //declare constants
@@ -145,6 +203,7 @@ class Login extends Component {
             </div>
           </div>
         </div>
+
         {/*Displays login successful prompt */}
         <h1 hidden={!this.state.isSignedIn} style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
           User successfully logged in.

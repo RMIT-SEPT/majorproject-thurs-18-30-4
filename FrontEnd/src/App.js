@@ -5,6 +5,8 @@ import Header from "./components/Layout/Header";
 import {Provider} from "react-redux";
 import store from "./store";
 class App extends Component {
+  
+
   render(){
     return (
       <Provider store={store}>
@@ -12,6 +14,7 @@ class App extends Component {
       <Header/>
       </div>  
       </Provider> 
+
 
     );
   }

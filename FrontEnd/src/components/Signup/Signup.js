@@ -48,8 +48,8 @@ class SignUp extends Component {
         console.log(response.status);
         
         // TODO alert user signup successful, navigate to login page
-        if(response.status === 200){
-          alert("Signup successful");
+        if(response.status ===200){
+          window.location.href = "/account";
           }
       }).catch(function(error){
         if (error.response){
