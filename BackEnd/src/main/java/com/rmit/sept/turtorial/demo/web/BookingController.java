@@ -31,7 +31,7 @@ public class BookingController {
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping(value = "/all/{id}")
+    @GetMapping()
     public ResponseEntity<Iterable<Booking>> getAllBookings() {
         Iterable<Booking> bookings = bookingService.findAllBookings();
 

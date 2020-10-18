@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -13,11 +14,11 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
-    @NotBlank(message = "business id cannot be blank")
+    @NotNull(message = "business id cannot be blank")
     public Long businessId;
-    @NotBlank(message = "customer id cannot be blank")
+    @NotNull(message = "customer id cannot be blank")
     public Long customerId;
-    @NotBlank(message = "worker id cannot be blank")
+    @NotNull(message = "worker id cannot be blank")
     public Long workerId;
 
     // boolean variable representing the state of the booking
@@ -26,11 +27,11 @@ public class Booking {
     @JsonFormat(pattern ="yyyy-MM-dd")
     public Date created_At;
 
-    @NotBlank(message = "booking start time required")
+    @NotNull(message = "booking start time required")
     @JsonFormat(pattern ="yyyy-MM-ddTHH-mm")
     public Date booked_At;
 
-    @NotBlank(message = "booking end time required")
+    @NotNull(message = "booking end time required")
     @JsonFormat(pattern ="yyyy-MM-ddTHH-mm")
     public Date booked_Till;
 
@@ -90,6 +91,14 @@ public class Booking {
     @PrePersist
     protected void onCreate() {
         this.created_At = new Date();
+    }
+
+    public Long getBusinessId() {
+        return businessId;
+    }
+
+    public void setBusinessId(Long businessId) {
+        this.businessId = businessId;
     }
 
     public Date getBooked_At() {
