@@ -1,4 +1,4 @@
-package com.rmit.sept.turtorial.demo.jwt;
+package com.rmit.sept.turtorial.test.jwt;
 
 import java.io.Serializable;
 

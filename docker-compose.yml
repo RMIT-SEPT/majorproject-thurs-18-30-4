@@ -1,0 +1,12 @@
+version: '3'
+services:
+  db:
+    image: 
+  
+  backend:
+    image: "s3785886/thurs_04_agme:frontend_latest"
+  
+  frontend:
+    image: "s3785886/thurs_04_agme:backend_latest"
+    depends-on:
+      - backend

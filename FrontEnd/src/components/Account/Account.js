@@ -15,6 +15,7 @@ class Account extends Component {
     this.props.dispatch(signout());
   }
 
+
   render() {
     const { user: loggedinUser } = this.props;
 
@@ -44,8 +45,17 @@ class Account extends Component {
           {loggedinUser.roles &&
             loggedinUser.roles.map((role, index) => <li key={index}>{role}</li>)}
         </ul>
+        <a href="/customer" className="blockCustomer">
+          Customer Dashboard
+        </a>
+        <a href="/worker" className="blockWorker">
+          Worker Dashboard
+        </a>
+        <a href="/admin" className="blockAdmin">
+          Admin Dashboard
+        </a>
         <a href="/login" className="nav-link" onClick={this.signOut}>
-          LogOut
+          Log Out
         </a>
       </div>
     );

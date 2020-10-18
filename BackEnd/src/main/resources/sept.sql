@@ -64,7 +64,7 @@ CREATE TABLE `user_roles` (
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (124,2);
+INSERT INTO `user_roles` VALUES (123,1),(124,3),(125,2);
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +94,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (123,'user1@gmail.com','User 1','abc',NULL,NULL),(124,'mod@admin.com','mod1','$2a$10$V1upLFS4GJCHIRmGuiahnejWDwcRgeClOABlBQD86cyn75mE96tcC',NULL,'mod1');
+INSERT INTO `users` VALUES (123,'user1@gmail.com','User 1','abc',NULL,'user 1'),(124,'mod@admin.com','mod1','$2a$10$V1upLFS4GJCHIRmGuiahnejWDwcRgeClOABlBQD86cyn75mE96tcC',NULL,'mod1'), (125,'work@worker.com','work1','$2a$10$V1upLFS4GJCHIRmGuiahnejWDwcRgeClOABlBQD86cyn75mE96tcC',NULL,'work1');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -162,6 +162,8 @@ CREATE TABLE `bookings` (
                             `business_id` bigint DEFAULT NULL,
                             `customer_id` bigint DEFAULT NULL,
                             `worker_id` bigint DEFAULT NULL,
+                            `booking_start` bigint DEFAULT NULL,
+                            `booking_end` bigint DEFAULT NULL,
                             PRIMARY KEY (`id`),
                             CONSTRAINT `FKiv4ue8a6h8ciramu9cc9q3qcq` FOREIGN KEY (`business_id`) REFERENCES `business` (`id`),
                             CONSTRAINT `FK6h8ciramu9cc9q3qcqiv4ue8a` FOREIGN KEY (`customer_id`) REFERENCES `users` (`id`)
